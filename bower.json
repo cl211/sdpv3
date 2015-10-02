@@ -1,0 +1,61 @@
+{
+  "name": "5a7",
+  "version": "0.1.0",
+  "homepage": "",
+  "authors": [
+    "fgr <fgr@oresys.fr>"
+  ],
+  "description": "5a7",
+  "main": "index.html",
+  "license": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.4.6",
+    "angular-material": "~0.11.0",
+    "angular-nvd3": "~0.1.1",
+    "angular-route": "~1.4.7",
+    "font-awesome": "fontawesome#~4.4.0",
+    "underscore": "~1.8.3"
+  },
+  "overrides": {
+    "angular": {
+      "main": "angular.min.js"
+    },
+    "d3": {
+      "main": "d3.min.js"
+    },
+    "font-awesome": {
+      "main": "css/font-awesome.min.css"
+    },
+    "underscore": {
+      "main": "underscore-min.js"
+    },
+    "nvd3": {
+      "main": ["nv.d3.min.js", "nv.d3.min.css"]
+    },
+    "angular-nvd3": {
+      "main": "dist/angular-nvd3.min.js"
+    },
+    "angular-animate": {
+      "main": "angular-animate.min.js"
+    },
+    "angular-aria": {
+      "main": "angular-aria.min.js"
+    },
+    "angular-route": {
+      "main": "angular-aria.min.js"
+    },
+    "angular-material": {
+      "main": [
+        "angular-material.min.js",
+        "angular-material.min.css"
+      ]
+    }
+  }
+}

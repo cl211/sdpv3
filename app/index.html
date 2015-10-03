@@ -11,10 +11,15 @@
 		<!-- injector:css -->
 		<!-- endinjector -->
   </head>
-  <body data-ng-app="sdp" data-ng-controller="MainCtrl as root">
+  <body data-ng-app="sdp" data-ng-controller="RootCtrl as root">
     <md-toolbar>
       <div class="md-toolbar-tools">
-        Clun's 211
+        <span>Clun's 211</span>
+        <span flex></span>
+        <md-button class="md-icon-button" aria-label="Déconnexion" ng-click="root.disconnect()">
+          <md-tooltip>Déconnexion</md-tooltip>
+          <i class="fa fa-sign-out"></i>
+        </md-button>
       </div>
     </md-toolbar>
     <md-content data-ng-view></md-content>
@@ -30,7 +35,9 @@
 		<!-- endbower -->
 		<!-- injector:js -->
 		<script src="index.js"></script>
-		<script src="modules/core/core.main.ctrl.js"></script>
+		<script src="modules/core/core.root.ctrl.js"></script>
+		<script src="modules/core/core.tools.service.js"></script>
+		<script src="modules/geoloc/geoloc.ctrl.js"></script>
 		<!-- endinjector -->
   </body>
 </html>

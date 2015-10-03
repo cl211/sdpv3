@@ -1,3 +1,4 @@
+"use strict";
 var tools = (function () {
     function tools($http) {
         var vm = this;

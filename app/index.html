@@ -9,20 +9,36 @@
 		<link rel="stylesheet" href="../bower_components/font-awesome/css/font-awesome.min.css" />
 		<!-- endbower -->
 		<!-- injector:css -->
+		<link rel="stylesheet" href="styles/main.css">
+		<link rel="stylesheet" href="styles/root.css">
 		<!-- endinjector -->
   </head>
   <body data-ng-app="sdp" data-ng-controller="RootCtrl as root">
-    <md-toolbar>
-      <div class="md-toolbar-tools">
-        <span>Clun's 211</span>
-        <span flex></span>
-        <md-button class="md-icon-button" aria-label="Déconnexion" ng-click="root.disconnect()">
-          <md-tooltip>Déconnexion</md-tooltip>
-          <i class="fa fa-sign-out"></i>
-        </md-button>
-      </div>
-    </md-toolbar>
-    <md-content data-ng-view></md-content>
+
+    <div data-layout="column" data-layout-fill>
+      <md-toolbar>
+        <div class="md-toolbar-tools">
+          <span>Clun's 211</span>
+          <span flex></span>
+          <md-button class="md-icon-button" aria-label="Déconnexion" ng-click="root.disconnect()">
+            <md-tooltip>Déconnexion</md-tooltip>
+            <i class="fa fa-sign-out"></i>
+          </md-button>
+        </div>
+      </md-toolbar>
+      <md-content data-layout="row" data-layout-fill>
+        <md-sidenav class="md-sidenav-left md-whiteframe-z2 sdp-sidenav" data-md-component-id="left" data-md-is-locked-open="true">
+          <md-button class="" data-ng-click="root.open('veille')">Veille technologique</md-button>
+          <md-button class="" data-ng-click="root.open('')">Discussion</md-button>
+          <md-button class="" data-ng-click="root.open('')">Ma Prom's</md-button>
+          <md-button class="" data-ng-click="root.open('brosouf')">Mon compte PG</md-button>
+          <md-button class="" data-ng-click="root.open('geoloc')">Géolocalisation</md-button>
+          <md-button class="" data-ng-click="root.open('user')">Mon compte</md-button>
+        </md-sidenav>
+        <div data-flex style="background-color:grey;">a</div>
+      </md-content>
+    </div>
+
 		<!-- bower:js -->
 		<script src="../bower_components/angular/angular.min.js"></script>
 		<script src="../bower_components/angular-animate/angular-animate.min.js"></script>
@@ -35,9 +51,13 @@
 		<!-- endbower -->
 		<!-- injector:js -->
 		<script src="index.js"></script>
+		<script src="modules/brosouf/brosouf.ctrl.js"></script>
 		<script src="modules/core/core.root.ctrl.js"></script>
 		<script src="modules/core/core.tools.service.js"></script>
 		<script src="modules/geoloc/geoloc.ctrl.js"></script>
+		<script src="modules/main/main.ctrl.js"></script>
+		<script src="modules/user/user.ctrl.js"></script>
+		<script src="modules/veille/veille.ctrl.js"></script>
 		<!-- endinjector -->
   </body>
 </html>

@@ -1,3 +1,4 @@
+"use strict";
 class tools {
   static IID: string = "tools";
   static $inject: Array<string> = ["$http"];

@@ -1,7 +1,12 @@
+"use strict";
 var RootCtrl = (function () {
-    function RootCtrl(tools) {
+    function RootCtrl(tools, $location) {
         var vm = this;
-        this.disconnect = disconnect;
+        vm.disconnect = disconnect;
+        vm.open = open;
+        function open(path) {
+            $location.path(path);
+        }
         function disconnect() {
             tools.disconnect();
         }

@@ -5,4 +5,42 @@
 /// <reference path="../definitions/angular-route.d.ts" />
 /// <reference path="../definitions/underscore.d.ts" />
 /// <reference path="../definitions/d3.d.ts" />
-angular.module("sdp", ["ngMaterial", "nvd3"]);
+"use strict";
+angular.module("sdp", ["ngMaterial", "nvd3", "ngRoute"]);
+
+class RouteConfig {
+  static $inject: Array<string> = ["$routeProvider"];
+  constructor($routeProvider: angular.route.IRouteProvider) {
+    $routeProvider.
+        when('/', {
+            templateUrl: 'modules/main.view.html',
+            controller: 'MainCtrl',
+            controllerAs: 'vm'
+        }).
+        when('/geoloc', {
+            templateUrl: 'modules/geoloc.view.html',
+            controller: 'GeolocCtrl',
+            controllerAs: 'vm'
+        }).
+        when('/user', {
+            templateUrl: 'modules/user/user.view.html',
+            controller: 'UserCtrl',
+            controllerAs: 'vm'
+        }).
+        when('/veille', {
+            templateUrl: 'modules/veille/veille.view.html',
+            controller: 'VeilleCtrl',
+            controllerAs: 'vm'
+        }).
+        when('/brosouf', {
+            templateUrl: 'modules/brosouf/brosouf.view.html',
+            controller: 'BrosoufCtrl',
+            controllerAs: 'vm'
+        }).
+        otherwise({
+            redirectTo: '/'
+        });
+  }
+}
+
+angular.module("sdp").config(RouteConfig);

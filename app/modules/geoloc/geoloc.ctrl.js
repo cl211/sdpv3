@@ -1,5 +1,7 @@
+"use strict";
 var GeolocCtrl = (function () {
     function GeolocCtrl() {
+        var vm = this;
     }
     GeolocCtrl.IID = "GeolocCtrl";
     GeolocCtrl.$inject = [];

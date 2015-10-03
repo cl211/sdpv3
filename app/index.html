@@ -29,13 +29,13 @@
       <md-content data-layout="row" data-layout-fill>
         <md-sidenav class="md-sidenav-left md-whiteframe-z2 sdp-sidenav" data-md-component-id="left" data-md-is-locked-open="true">
           <md-button class="" data-ng-click="root.open('veille')">Veille technologique</md-button>
-          <md-button class="" data-ng-click="root.open('')">Discussion</md-button>
+          <md-button class="" data-ng-click="root.open('discussion')">Discussion</md-button>
           <md-button class="" data-ng-click="root.open('')">Ma Prom's</md-button>
           <md-button class="" data-ng-click="root.open('brosouf')">Mon compte PG</md-button>
           <md-button class="" data-ng-click="root.open('geoloc')">Géolocalisation</md-button>
           <md-button class="" data-ng-click="root.open('user')">Mon compte</md-button>
         </md-sidenav>
-        <div data-flex style="background-color:grey;">a</div>
+        <div data-flex data-ng-view data-layout="column" data-layout-margin data-layout-padding class="sdp-background"></div>
       </md-content>
     </div>
 
@@ -47,6 +47,7 @@
 		<script src="../bower_components/d3/d3.min.js"></script>
 		<script src="../bower_components/nvd3/nv.d3.min.js"></script>
 		<script src="../bower_components/angular-nvd3/dist/angular-nvd3.min.js"></script>
+		<script src="../bower_components/angular-route/angular-route.min.js"></script>
 		<script src="../bower_components/underscore/underscore-min.js"></script>
 		<!-- endbower -->
 		<!-- injector:js -->
@@ -54,6 +55,7 @@
 		<script src="modules/brosouf/brosouf.ctrl.js"></script>
 		<script src="modules/core/core.root.ctrl.js"></script>
 		<script src="modules/core/core.tools.service.js"></script>
+		<script src="modules/discussion/discussion.ctrl.js"></script>
 		<script src="modules/geoloc/geoloc.ctrl.js"></script>
 		<script src="modules/main/main.ctrl.js"></script>
 		<script src="modules/user/user.ctrl.js"></script>

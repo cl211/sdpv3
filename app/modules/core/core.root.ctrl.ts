@@ -1,8 +1,10 @@
 "use strict";
 class RootCtrl {
   static IID: string = "RootCtrl";
-  static $inject: Array<string> = ["tools"];
+  static $inject: Array<string> = ["tools", "$location"];
+  /** Gère la déconnexion */
   disconnect: Function;
+  /** Gère le changement de route */
   open: Function;
 
   constructor(tools: tools, $location: ng.ILocationService) {

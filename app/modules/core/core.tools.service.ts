@@ -2,6 +2,7 @@
 class tools {
   static IID: string = "tools";
   static $inject: Array<string> = ["$http"];
+  /** Gère la déconnexion */
   disconnect: Function;
 
   constructor($http: ng.IHttpService) {

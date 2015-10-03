@@ -12,7 +12,7 @@ var RootCtrl = (function () {
         }
     }
     RootCtrl.IID = "RootCtrl";
-    RootCtrl.$inject = ["tools"];
+    RootCtrl.$inject = ["tools", "$location"];
     return RootCtrl;
 })();
 angular.module("sdp").controller(RootCtrl.IID, RootCtrl);

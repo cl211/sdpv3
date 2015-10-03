@@ -4,12 +4,12 @@ var RouteConfig = (function () {
     function RouteConfig($routeProvider) {
         $routeProvider.
             when('/', {
-            templateUrl: 'modules/main.view.html',
+            templateUrl: 'modules/main/main.view.html',
             controller: 'MainCtrl',
             controllerAs: 'vm'
         }).
             when('/geoloc', {
-            templateUrl: 'modules/geoloc.view.html',
+            templateUrl: 'modules/geoloc/geoloc.view.html',
             controller: 'GeolocCtrl',
             controllerAs: 'vm'
         }).
@@ -21,6 +21,11 @@ var RouteConfig = (function () {
             when('/veille', {
             templateUrl: 'modules/veille/veille.view.html',
             controller: 'VeilleCtrl',
+            controllerAs: 'vm'
+        }).
+            when('/discussion', {
+            templateUrl: 'modules/discussion/discussion.view.html',
+            controller: 'DiscussionCtrl',
             controllerAs: 'vm'
         }).
             when('/brosouf', {

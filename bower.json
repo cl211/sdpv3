@@ -49,7 +49,7 @@
       "main": "angular-aria.min.js"
     },
     "angular-route": {
-      "main": "angular-aria.min.js"
+      "main": "angular-route.min.js"
     },
     "angular-material": {
       "main": [

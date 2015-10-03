@@ -12,6 +12,14 @@ var mongoose = require('mongoose');
 var usersDb = mongoose.createConnection(config.usersDb, function (err, db) {
     if (!err) { console.log("Connexion à la base des utilisateurs réussie"); } else { console.log(err); }
 });
+var groupesDb = mongoose.createConnection(config.groupesDb, function (err, db) {
+    if (!err) { console.log("Connexion à la base des groupes réussie"); } else { console.log(err); }
+});
+var eventsDb = mongoose.createConnection(config.eventsDb, function (err, db) {
+    if (!err) { console.log("Connexion à la base des événements réussie"); } else { console.log(err); }
+});
+
+var models = require('./models/models')(usersDb, groupesDb, eventsDb);
 
 app.use(logger('dev'));
 app.use(bodyParser.urlencoded({ extended: true }));

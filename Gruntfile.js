@@ -11,7 +11,8 @@ module.exports = function(grunt) {
 	    },
 	    injector: {
 	        options: {
-            addRootSlash: false
+            addRootSlash: false,
+            relative: true
 	        },
 	        local_dependencies: {
 	            files: {

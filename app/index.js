@@ -1,5 +1,5 @@
 "use strict";
-angular.module("sdp", ["ngMaterial", "nvd3", "ngRoute"]);
+angular.module("sdp", ["ngMaterial", "nvd3", "ngRoute", "angularMoment"]);
 var RouteConfig = (function () {
     function RouteConfig($routeProvider) {
         $routeProvider.
@@ -41,4 +41,7 @@ var RouteConfig = (function () {
     return RouteConfig;
 })();
 angular.module("sdp").config(RouteConfig);
+angular.module("sdp").run(function (amMoment) {
+    amMoment.changeLocale('fr-fr');
+});
 //# sourceMappingURL=index.js.map

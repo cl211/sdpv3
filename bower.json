@@ -21,7 +21,8 @@
     "angular-nvd3": "~0.1.1",
     "angular-route": "~1.4.7",
     "font-awesome": "fontawesome#~4.4.0",
-    "underscore": "~1.8.3"
+    "underscore": "~1.8.3",
+    "angular-moment": "~0.10.3"
   },
   "overrides": {
     "angular": {
@@ -30,6 +31,12 @@
     "d3": {
       "main": "d3.min.js"
     },
+    "moment": {
+      "main": "min/moment-with-locales.min.js"
+    },
+    "angular-moment": {
+      "main": "angular-moment.min.js"
+    },
     "font-awesome": {
       "main": "css/font-awesome.min.css"
     },
@@ -37,7 +44,10 @@
       "main": "underscore-min.js"
     },
     "nvd3": {
-      "main": ["nv.d3.min.js", "nv.d3.min.css"]
+      "main": [
+        "nv.d3.min.js",
+        "nv.d3.min.css"
+      ]
     },
     "angular-nvd3": {
       "main": "dist/angular-nvd3.min.js"

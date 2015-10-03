@@ -6,7 +6,7 @@
 /// <reference path="../definitions/underscore.d.ts" />
 /// <reference path="../definitions/d3.d.ts" />
 "use strict";
-angular.module("sdp", ["ngMaterial", "nvd3", "ngRoute"]);
+angular.module("sdp", ["ngMaterial", "nvd3", "ngRoute", "angularMoment"]);
 
 class RouteConfig {
   static $inject: Array<string> = ["$routeProvider"];
@@ -49,3 +49,6 @@ class RouteConfig {
 }
 
 angular.module("sdp").config(RouteConfig);
+angular.module("sdp").run(function(amMoment) {
+    amMoment.changeLocale('fr-fr');
+});

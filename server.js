@@ -60,12 +60,9 @@ passport.use(new GoogleStrategy({
   }
 ));
 
-app.get('/auth/google',
-  passport.authenticate('google', { scope: 'https://www.googleapis.com/auth/userinfo.email' }));
+app.get('/auth/google', passport.authenticate('google', { scope: 'https://www.googleapis.com/auth/userinfo.email' }));
 
-app.get('/auth/google/callback',
-  passport.authenticate('google', { failureRedirect: '/' }),
-  function(req, res) {
+app.get('/auth/google/callback', passport.authenticate('google', { failureRedirect: '/' }), function(req, res) {
     // Successful authentication, redirect home.
     res.redirect('/');
   });
@@ -81,13 +78,18 @@ app.get('/auth/google/callback',
   app.use('/', isAuthenticated, express.static('app'));
   app.use('login', express.static('portail'));
   app.use('/bower_components', isAuthenticated, express.static('bower_components'));
-
   app.post('/logout', function(req, res){
         req.session.destroy(function(e){
             //req.logout();
             res.redirect('/login');
         });
   });
+
+
+  // Déclaration de l'API
+  var api = express.Router();
+  require('./routes/api')(api, isAuthenticated, models);
+  app.use('/api', api);
 
 var server = app.listen(8080, function () {
   var host = server.address().address;

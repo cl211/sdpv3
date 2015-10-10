@@ -34,6 +34,7 @@
           <md-button class="" data-ng-click="root.open('brosouf')">Mon compte PG</md-button>
           <md-button class="" data-ng-click="root.open('geoloc')">Géolocalisation</md-button>
           <md-button class="" data-ng-click="root.open('user')">Mon compte</md-button>
+          <md-button class="" data-ng-click="root.open('admin')">Administration</md-button>
         </md-sidenav>
         <div data-flex data-ng-view data-layout="column" data-layout-margin data-layout-padding class="sdp-background"></div>
       </md-content>
@@ -54,7 +55,9 @@
 		<!-- endbower -->
 		<!-- injector:js -->
 		<script src="index.js"></script>
+		<script src="modules/admin/admin.ctrl.js"></script>
 		<script src="modules/brosouf/brosouf.ctrl.js"></script>
+		<script src="modules/core/core.api.users.js"></script>
 		<script src="modules/core/core.root.ctrl.js"></script>
 		<script src="modules/core/core.tools.service.js"></script>
 		<script src="modules/discussion/discussion.ctrl.js"></script>
@@ -62,6 +65,7 @@
 		<script src="modules/main/main.ctrl.js"></script>
 		<script src="modules/user/user.ctrl.js"></script>
 		<script src="modules/veille/veille.ctrl.js"></script>
+		<script src="sdp.js"></script>
 		<!-- endinjector -->
   </body>
 </html>

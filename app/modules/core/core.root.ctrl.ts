@@ -21,4 +21,4 @@ class RootCtrl {
     }
   }
 }
-angular.module("sdp").controller(RootCtrl.IID, RootCtrl);
+angular.module("sdp.core").controller(RootCtrl.IID, RootCtrl);

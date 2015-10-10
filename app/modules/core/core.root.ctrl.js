@@ -15,5 +15,5 @@ var RootCtrl = (function () {
     RootCtrl.$inject = ["tools", "$location"];
     return RootCtrl;
 })();
-angular.module("sdp").controller(RootCtrl.IID, RootCtrl);
+angular.module("sdp.core").controller(RootCtrl.IID, RootCtrl);
 //# sourceMappingURL=core.root.ctrl.js.map

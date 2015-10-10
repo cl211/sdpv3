@@ -1,5 +1,7 @@
 "use strict";
-angular.module("sdp", ["ngMaterial", "nvd3", "ngRoute", "angularMoment"]);
+angular.module("sdp", ["ngMaterial", "nvd3", "ngRoute", "angularMoment", "sdp.admin", "sdp.core"]);
+angular.module("sdp.admin", []);
+angular.module("sdp.core", []);
 var RouteConfig = (function () {
     function RouteConfig($routeProvider) {
         $routeProvider.
@@ -26,6 +28,11 @@ var RouteConfig = (function () {
             when('/discussion', {
             templateUrl: 'modules/discussion/discussion.view.html',
             controller: 'DiscussionCtrl',
+            controllerAs: 'vm'
+        }).
+            when('/admin', {
+            templateUrl: 'modules/admin/admin.view.html',
+            controller: 'AdminCtrl',
             controllerAs: 'vm'
         }).
             when('/brosouf', {

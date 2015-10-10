@@ -14,4 +14,4 @@ class tools {
     }
   }
 }
-angular.module("sdp").service(tools.IID, tools);
+angular.module("sdp.core").service(tools.IID, tools);

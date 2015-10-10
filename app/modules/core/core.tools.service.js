@@ -11,5 +11,5 @@ var tools = (function () {
     tools.$inject = ["$http"];
     return tools;
 })();
-angular.module("sdp").service(tools.IID, tools);
+angular.module("sdp.core").service(tools.IID, tools);
 //# sourceMappingURL=core.tools.service.js.map

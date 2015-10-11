@@ -1,18 +1,17 @@
 module.exports = function (api, isAuthenticated, models) {
+  var User = models.User;
 
   api.route('/users')
     .get(function(req, res) {
-      res.status(200).send({
-        success: true,
-        message: "La liste des utilisateurs !"
-      })
+      User.find({}, function (err, users) {
+        res.status(200).json(users);
+      });
     });
 
     api.route('/user')
       .get(function(req, res) {
-        res.status(200).send({
-          success: true,
-          message: "L'utilisateur courant !"
-        })
+        User.find({}, function (err, users) {
+          res.status(200).json(users);
+        });
       });
 }

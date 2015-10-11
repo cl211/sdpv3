@@ -1,9 +1,11 @@
 var mongoose = require('mongoose');
+var findOrCreate = require('mongoose-findorcreate')
 
 module.exports = function (usersDb, groupesDb, eventsDb) {
     var Schema = mongoose.Schema;
 
     var UserSchema = new Schema({
+      googleId: String,
       buque: String,
       fams: String,
       picture: String,
@@ -17,6 +19,7 @@ module.exports = function (usersDb, groupesDb, eventsDb) {
       isAdmin: Boolean,
       isDDP: Boolean
     });
+    UserSchema.plugin(findOrCreate);
 
     var GroupeItemSchema = new Schema({
       name: String,

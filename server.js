@@ -20,6 +20,7 @@ var eventsDb = mongoose.createConnection(config.eventsDb, function (err, db) {
 });
 
 var models = require('./models/models')(usersDb, groupesDb, eventsDb);
+var User = models.User;
 
 app.use(logger('dev'));
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -40,23 +41,15 @@ passport.use(new GoogleStrategy({
     callbackURL: "http://localhost:8080/auth/google/callback"
   },
   function(accessToken, refreshToken, profile, done) {
-    console.log(profile);
     if(profile._json.domain === "gadz.org"){
-      process.nextTick(function () {
-        return done(null, profile);
+      //console.log(profile);
+      User.findOrCreate({ googleId: profile.id }, { email1: profile.emails[0].value }, function (err, user, created) {
+        return done(err, user);
       });
     }else{
         // fail
         done(new Error("Invalid host domain"));
     }
-
-
-
-    /*
-    User.findOrCreate({ googleId: profile.id }, function (err, user) {
-      return done(err, user);
-    });
-    console.log("Authentification réussie");*/
   }
 ));
 

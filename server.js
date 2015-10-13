@@ -7,7 +7,11 @@ var session = require('express-session');
 var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
 var app = express();
 
-// Connexion à la base de données
+/** Définition du moteur de vues */
+app.set('views', __dirname + '\\public');
+app.set('view engine', 'jade');
+
+/** Connexion à la base de données */
 var mongoose = require('mongoose');
 var usersDb = mongoose.createConnection(config.usersDb, function (err, db) {
     if (!err) { console.log("Connexion à la base des utilisateurs réussie"); } else { console.log(err); }
@@ -84,6 +88,18 @@ app.get('/auth/google/callback', passport.authenticate('google', { failureRedire
   var api = express.Router();
   require('./routes/api')(api, models);
   app.use('/api', api);
+
+  // Handle 404
+  app.use(function(req, res) {
+    res.status(404);
+    res.render('404.jade', {title: 'Page non trouvée !'});
+  });
+
+  // Handle 500
+  app.use(function(error, req, res, next) {
+    res.status(500);
+    res.render('500.jade', {title:'Erreur interne !', error: error});
+  });
 
 var server = app.listen(8080, function () {
   var host = server.address().address;

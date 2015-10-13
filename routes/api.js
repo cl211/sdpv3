@@ -44,6 +44,14 @@ module.exports = function (api, models) {
        *   /api/v1/users/171
        */
       .get(function(req, res) {
+        User.findById(req.params.form_id, function (err, user) {
+          if(err) {
+            res.status(404).send(err);
+          } else {
+            res.status(200).send(user);
+          }
+        });
+
         User.find({}, function (err, users) {
           res.status(200).json(users);
         });

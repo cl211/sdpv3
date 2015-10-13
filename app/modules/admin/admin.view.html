@@ -3,4 +3,11 @@
     <span>Administration</span>
   </div>
 </md-toolbar>
-{{ vm.users }}
+<md-content>
+  <md-list>
+    <md-list-item data-ng-repeat="user in vm.users" ng-click="vm.select(user._id)">
+      <p>{{ user.email1 }} - {{ user._id }}</p>
+      <md-divider></md-divider>
+    </md-list-item>
+  </md-list>
+</md-content>

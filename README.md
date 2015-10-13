@@ -6,8 +6,9 @@ git checkout maBranche
 (pour créer la branche, ajouter -b)
 
 ## Accéder à la documentation de l'api
-* [Facultatif] Vérifier que apidoc est installé (npm i -g apidoc)
-* [Facultatif] Générer la documentation en exécutant docgen.sh
+
+* Vérifier que apidoc est installé (pour l'installer : npm i -g apidoc)
+* Générer la documentation en exécutant docgen.sh
 * Lancer le serveur (node server.js) et se connecter
 * Accéder à la documentation à l'adresse http://localhost:8080/doc/
 

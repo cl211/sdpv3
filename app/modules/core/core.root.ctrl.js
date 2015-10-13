@@ -1,9 +1,10 @@
 "use strict";
 var RootCtrl = (function () {
-    function RootCtrl(tools, $location) {
+    function RootCtrl(tools, $location, sdpTitle) {
         var vm = this;
         vm.disconnect = disconnect;
         vm.open = open;
+        vm.title = sdpTitle;
         function open(path) {
             $location.path(path);
         }
@@ -12,7 +13,7 @@ var RootCtrl = (function () {
         }
     }
     RootCtrl.IID = "RootCtrl";
-    RootCtrl.$inject = ["tools", "$location"];
+    RootCtrl.$inject = ["tools", "$location", "sdpTitle"];
     return RootCtrl;
 })();
 angular.module("sdp.core").controller(RootCtrl.IID, RootCtrl);

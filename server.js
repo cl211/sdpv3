@@ -71,6 +71,7 @@ app.get('/auth/google/callback', passport.authenticate('google', { failureRedire
   app.use('/', isAuthenticated, express.static('app'));
   app.use('login', express.static('portail'));
   app.use('/bower_components', isAuthenticated, express.static('bower_components'));
+  app.use('/doc', isAuthenticated, express.static('doc'));
   app.post('/logout', function(req, res){
         req.session.destroy(function(e){
             //req.logout();
@@ -81,7 +82,7 @@ app.get('/auth/google/callback', passport.authenticate('google', { failureRedire
 
   // Déclaration de l'API
   var api = express.Router();
-  require('./routes/api')(api, isAuthenticated, models);
+  require('./routes/api')(api, models);
   app.use('/api', api);
 
 var server = app.listen(8080, function () {

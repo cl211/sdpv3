@@ -22,8 +22,24 @@ git push origin maBranche
 ```js
 npm install
 bower install
+```
+
+## Grunt
+
+### Insérer les dépendances dans l'index
+```js
 grunt wire
 ```
+### Générer le JS à partir du typescript
+```js
+grunt ts
+```
+### Faire les deux d'un coup
+```js
+grunt tswire
+```
+
+Remarque : si le typescript est mal utilisé dans le code, la génération du js échouera. On peut contourner le problème en ajoutant la commande --force
 
 ## Modules à installer de manière globale
 ```js

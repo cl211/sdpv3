@@ -3,3 +3,5 @@ bower_components/
 config.js
 tmp/
 doc/
+app/**/*.js
+app/**/*.js.map

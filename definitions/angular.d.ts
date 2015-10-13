@@ -4,7 +4,7 @@
 // Definitions: https://github.com/borisyankov/DefinitelyTyped
 
 
-/// <reference path="../jquery/jquery.d.ts" />
+/// <reference path="./jquery.d.ts" />
 
 declare var angular: angular.IAngularStatic;
 
@@ -784,19 +784,19 @@ declare module angular {
          */
         (name: string): IFilterFunc;
     }
-    
+
     interface IFilterFunc {
         <T>(array: T[], expression: string | IFilterPatternObject | IFilterPredicateFunc<T>, comparator?: IFilterComparatorFunc<T>|boolean): T[];
     }
-    
+
     interface IFilterPatternObject {
         [name: string]: string;
     }
-    
+
     interface IFilterPredicateFunc<T> {
         (value: T, index: number, array: T[]): T[];
     }
-    
+
     interface IFilterComparatorFunc<T> {
         (actual: T, expected: T): boolean;
     }

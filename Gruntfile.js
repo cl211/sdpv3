@@ -24,10 +24,11 @@ module.exports = function(grunt) {
 	        base: {
 	            src: ['app/**/*.ts'],
 	            options: {
-	                module: 'amd',
+	                module: 'commonjs',
 	                target: 'es5',
 	                sourceMap: true,
-	                declaration: false
+	                declaration: false,
+                  removeComments: true
 	            }
 	        }
 	    }

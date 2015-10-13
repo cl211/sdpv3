@@ -3,7 +3,8 @@
 // Definitions by: Michel Salib <https://github.com/michelsalib>, Adi Dahiya <https://github.com/adidahiya>, Raphael Schweizer <https://github.com/rasch>, Cody Schaaf <https://github.com/codyschaaf>
 // Definitions: https://github.com/borisyankov/DefinitelyTyped
 
-/// <reference path="angular.d.ts" />
+/// <reference path="./angular.d.ts" />
+/// <reference path="./jquery.d.ts" />
 
 declare module "angular-animate" {
     var _: string;

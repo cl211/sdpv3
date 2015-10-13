@@ -6,7 +6,7 @@ class tools {
   disconnect: Function;
 
   constructor($http: ng.IHttpService) {
-    var vm = this;
+    var vm: tools = this;
     vm.disconnect = disconnect;
 
     function disconnect(): ng.IHttpPromise<any> {

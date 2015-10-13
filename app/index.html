@@ -13,12 +13,12 @@
 		<link rel="stylesheet" href="styles/root.css">
 		<!-- endinjector -->
   </head>
-  <body data-ng-app="sdp" data-ng-controller="RootCtrl as root">
+  <body data-ng-app="sdp" data-ng-controller="RootCtrl as root" data-ng-cloak>
 
     <div data-layout="column" data-layout-fill>
       <md-toolbar>
         <div class="md-toolbar-tools">
-          <span>Clun's 211</span>
+          <span>{{ ::root.title }}</span>
           <span flex></span>
           <md-button class="md-icon-button" aria-label="Déconnexion" ng-click="root.disconnect()">
             <md-tooltip>Déconnexion</md-tooltip>
@@ -60,6 +60,7 @@
 		<script src="modules/core/core.api.users.js"></script>
 		<script src="modules/core/core.root.ctrl.js"></script>
 		<script src="modules/core/core.tools.service.js"></script>
+		<script src="modules/core/core.values.js"></script>
 		<script src="modules/discussion/discussion.ctrl.js"></script>
 		<script src="modules/geoloc/geoloc.ctrl.js"></script>
 		<script src="modules/main/main.ctrl.js"></script>

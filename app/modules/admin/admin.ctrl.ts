@@ -1,13 +1,13 @@
 "use strict";
 class AdminCtrl {
   static IID: string = "AdminCtrl";
-  static $inject: Array<string> = ["users", "$log", "$http"];
+  static $inject: Array<string> = ["users", "$log", "$http", "Restangular"];
   /** La liste des utilisateurs */
   users: Array<sdp.user>;
   /** Sélection d'un user */
   select: (id: string) => any;
 
-  constructor(users: users, $log: ng.ILogService, $http: ng.IHttpService) {
+  constructor(users: users, $log: ng.ILogService, $http: ng.IHttpService, Restangular: restangular.IService) {
     var vm: AdminCtrl = this;
     vm.select = select;
     updateUsers();

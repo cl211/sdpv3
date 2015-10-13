@@ -5,7 +5,7 @@ Le site de prom's, le vrai !
 git checkout maBranche
 (pour créer la branche, ajouter -b)
 
-## Accéder à la documentation de l'api
+## Accéder à la documentation de l'API
 
 * Vérifier que apidoc est installé (pour l'installer : npm i -g apidoc)
 * Générer la documentation en exécutant docgen.sh

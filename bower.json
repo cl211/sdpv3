@@ -22,11 +22,18 @@
     "angular-nvd3": "~0.1.1",
     "angular-route": "~1.4.7",
     "font-awesome": "fontawesome#~4.4.0",
+    "restangular": "~1.5.1",
     "underscore": "~1.8.3"
   },
   "overrides": {
     "angular": {
       "main": "angular.min.js"
+    },
+    "restangular": {
+      "main": "dist/restangular.min.js"
+    },
+    "lodash": {
+      "main": "lodash.min.js"
     },
     "d3": {
       "main": "d3.min.js"

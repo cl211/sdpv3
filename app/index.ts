@@ -5,8 +5,9 @@
 /// <reference path="../definitions/angular-route.d.ts" />
 /// <reference path="../definitions/underscore.d.ts" />
 /// <reference path="../definitions/d3.d.ts" />
+/// <reference path="../definitions/restangular.d.ts" />
 "use strict";
-angular.module("sdp", ["ngMaterial", "nvd3", "ngRoute", "angularMoment", "sdp.admin", "sdp.core"]);
+angular.module("sdp", ["ngMaterial", "nvd3", "ngRoute", "angularMoment", "restangular", "sdp.admin", "sdp.core"]);
 angular.module("sdp.admin", []);
 angular.module("sdp.core", []);
 

@@ -5,3 +5,4 @@ tmp/
 doc/
 app/**/*.js
 app/**/*.js.map
+dist/

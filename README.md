@@ -13,10 +13,10 @@ git checkout maBranche
 * Accéder à la documentation à l'adresse http://localhost:8080/doc/
 
 ## Push sur GitHub
-git status
-git add dossiers/fichiers
-git commit -m "Message de commit" -a
-git push origin maBranche
+* git status
+* git add dossiers/fichiers
+* git commit -m "Message de commit" -a
+* git push origin maBranche
 
 ## Update dependencies
 ```js
@@ -61,12 +61,5 @@ npm i --save-dev broccoli
 node server.js
 ```
 
-## Wire
-```js
-grunt wire
-```
-
 ## Build
-```js
-rm -rf dist && broccoli build dist
-```
+Exécuter build.sh

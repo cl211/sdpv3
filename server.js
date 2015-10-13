@@ -46,8 +46,8 @@ passport.use(new GoogleStrategy({
   },
   function(accessToken, refreshToken, profile, done) {
     if(profile._json.domain === "gadz.org"){
-      //console.log(profile);
-      User.findOrCreate({ googleId: profile.id }, { email1: profile.emails[0].value }, function (err, user, created) {
+      /** TODO : ici il ne faudra plus créer systématiquement mais juste find */
+      User.findOrCreate({ email1: profile.emails[0].value }, { googleId: profile.id }, function (err, user, created) {
         return done(err, user);
       });
     }else{
@@ -60,7 +60,6 @@ passport.use(new GoogleStrategy({
 app.get('/auth/google', passport.authenticate('google', { scope: 'https://www.googleapis.com/auth/userinfo.email' }));
 
 app.get('/auth/google/callback', passport.authenticate('google', { failureRedirect: '/' }), function(req, res) {
-    // Successful authentication, redirect home.
     res.redirect('/');
   });
 
@@ -70,7 +69,6 @@ app.get('/auth/google/callback', passport.authenticate('google', { failureRedire
       return next();
     res.redirect('/auth/google');
   }
-
 
   app.use('/', isAuthenticated, express.static('app'));
   app.use('login', express.static('portail'));

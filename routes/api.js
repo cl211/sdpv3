@@ -13,6 +13,7 @@ module.exports = function (api, models) {
    *   /api/v1/users
    */
     .get(function(req, res) {
+      /** TODO : gérer la pagination */
       User.find({}, function (err, users) {
         res.status(200).json(users);
       });
@@ -30,10 +31,22 @@ module.exports = function (api, models) {
      *   /api/v1/users
      */
     .post(function(req, res) {
-
+      var user = new User();
+      if (req.body.email1) {
+        user.email1 = req.body.email1
+        user.save(function (err) {
+            if (err) {
+              res.status(400).send(err);
+            } else {
+              res.status(200).json({ message: 'Utilisateur créé' });
+            }
+        });
+      } else {
+          res.status(400).send({ message: 'Pas d\'adresse mail spécifiée' })
+      }
     });
 
-    api.route('/v1/users/:userId')
+    api.route('/v1/users/:user_id')
       /**
        * @api {get} /users/:userId
        * @apiDescription Cette requête permet de récupérer un utilisateur à partir de son ID
@@ -44,16 +57,12 @@ module.exports = function (api, models) {
        *   /api/v1/users/171
        */
       .get(function(req, res) {
-        User.findById(req.params.form_id, function (err, user) {
+        User.findById(req.params.user_id, function (err, user) {
           if(err) {
             res.status(404).send(err);
           } else {
             res.status(200).send(user);
           }
-        });
-
-        User.find({}, function (err, users) {
-          res.status(200).json(users);
         });
       })
         /**
@@ -66,8 +75,12 @@ module.exports = function (api, models) {
          *   /api/v1/users/171
          */
       .delete(function(req, res) {
-        User.find({}, function (err, users) {
-          res.status(200).json(users);
+        User.remove({ _id: req.params.user_id }, function (err, user) {
+            if (err) {
+              res.status(400).send(err);
+            } else {
+              res.status(200).json({ message: 'Utilisateur correctement supprimé' });
+            }
         });
       })
         /**
@@ -80,8 +93,6 @@ module.exports = function (api, models) {
          *   /api/v1/users/171
          */
       .put(function(req, res) {
-        User.find({}, function (err, users) {
-          res.status(200).json(users);
-        });
+        /** TODO */
       });
 }

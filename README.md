@@ -25,6 +25,14 @@ bower install
 grunt wire
 ```
 
+## Modules à installer de manière globale
+```js
+npm i -g apidoc
+npm i -g grunt-cli
+npm i -g broccoli-cli
+npm i -g bower
+```
+
 ## Install dependencies
 ```js
 bower i --save angular

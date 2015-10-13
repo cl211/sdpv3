@@ -9,7 +9,7 @@ git checkout maBranche
 * [Facultatif] Vérifier que apidoc est installé (npm i -g apidoc)
 * [Facultatif] Générer la documentation en exécutant docgen.sh
 * Lancer le serveur (node server.js) et se connecter
-* Accéder à la documentation ) l'adresse http://localhost:8080/doc/
+* Accéder à la documentation à l'adresse http://localhost:8080/doc/
 
 ## Push sur GitHub
 git status

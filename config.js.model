@@ -1,0 +1,8 @@
+module.exports = {
+  key: "alpha.apps.googleusercontent.com",
+  secret: "beta",
+  sessionkey: "gamma",
+  usersDb: 'mongodb://localhost:211/delta',
+  groupesDb: 'mongodb://localhost:211/epsilon',
+  eventsDb: 'mongodb://localhost:211/zeta'
+}

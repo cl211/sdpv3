@@ -12,8 +12,8 @@ angular.module("sdp.admin", []);
 angular.module("sdp.core", []);
 
 class RouteConfig {
-  static $inject: Array<string> = ["$routeProvider"];
-  constructor($routeProvider: angular.route.IRouteProvider) {
+  static $inject: Array<string> = ["$routeProvider", "RestangularProvider"];
+  constructor($routeProvider: angular.route.IRouteProvider, RestangularProvider: restangular.IProvider) {
     $routeProvider.
         when('/', {
             templateUrl: 'modules/main/main.view.html',
@@ -53,6 +53,8 @@ class RouteConfig {
         otherwise({
             redirectTo: '/'
         });
+
+    RestangularProvider.setBaseUrl("api/v1/");
   }
 }
 

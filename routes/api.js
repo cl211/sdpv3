@@ -75,12 +75,14 @@ module.exports = function (api, models) {
          *   /api/v1/users/171
          */
       .delete(function(req, res) {
-        User.remove({ _id: req.params.user_id }, function (err, user) {
-            if (err) {
-              res.status(400).send(err);
-            } else {
+        User.findById(req.params.user_id, function(err, user) {
+          if(err) {
+            res.status(404).send(err);
+          } else {
+            user.remove(function(result) {
               res.status(200).json({ message: 'Utilisateur correctement supprimé' });
-            }
+            });
+          }
         });
       })
         /**

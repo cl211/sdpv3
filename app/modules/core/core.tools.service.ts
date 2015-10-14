@@ -1,4 +1,5 @@
 "use strict";
+/** Service qui sert de boîte à outils sur le reste du projet */
 class tools {
   static IID: string = "tools";
   static $inject: Array<string> = ["$http", "$location", "$window", "$mdToast", "$mdDialog"];

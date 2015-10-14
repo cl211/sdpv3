@@ -1,22 +1,43 @@
-<md-toolbar class="md-primary md-hue-1">
-  <div class="md-toolbar-tools">
-    <span>Administration</span>
-    <span data-flex></span>
-    <md-button class="md-icon-button" data-ng-click="vm.addUser()">
-      <i class="fa fa-plus sdp-success"></i>
-      <md-tooltip>Ajouter</md-tooltip>
-    </md-button>
-  </div>
-</md-toolbar>
-<md-content>
-  <md-list>
-    <md-list-item data-ng-repeat="user in vm.users | orderBy:'email1':false" ng-click="vm.select(user._id)">
-      <p>{{ user.email1 }} - {{ user._id }}</p>
-      <md-button class="md-secondary md-icon-button" data-ng-click="vm.deleteUser(user._id)">
-        <i class="fa fa-times sdp-warn"></i>
-        <md-tooltip>Supprimer</md-tooltip>
+<md-whiteframe class="md-whiteframe-1dp">
+  <md-toolbar class="md-primary md-hue-1">
+    <div class="md-toolbar-tools">
+      <span>Administration</span>
+      <span data-flex></span>
+      <md-button class="md-icon-button" data-ng-click="vm.toggleAddForm()">
+        <i class="fa sdp-success" data-ng-class="{ true: 'fa-minus', false: 'fa-plus' }[vm.canAdd]"></i>
+        <md-tooltip>Ajouter</md-tooltip>
       </md-button>
-      <md-divider></md-divider>
-    </md-list-item>
-  </md-list>
-</md-content>
+    </div>
+    <md-progress-linear md-mode="indeterminate" data-ng-if="vm.isLoading"></md-progress-linear>
+  </md-toolbar>
+  <md-content>
+    <md-list>
+      <md-list-item data-ng-repeat="user in vm.users | orderBy:'email1':false">
+          <p>
+            {{ user.email1 }}
+            <span flex></span>
+            <i class="fa fa-edit sdp-primary sdp-clickable sdp-offset" data-ng-click="vm.select(user._id, $event)"><md-tooltip>Mettre à jour</md-tooltip></i>
+            <i class="fa fa-times sdp-warn sdp-clickable sdp-offset" data-ng-click="vm.deleteUser(user._id, $event)"><md-tooltip>Supprimer</md-tooltip></i>
+          </p>
+        <md-divider data-ng-if="!$last"></md-divider>
+      </md-list-item>
+    </md-list>
+  </md-content>
+</md-whiteframe>
+<div data-ng-show="vm.canAdd" class="sdp-adduser-zone">
+    <form layout="row">
+        <div flex>
+            <md-input-container>
+                <label>Adresse Gadz.org</label>
+                <input type="email" id="email" data-ng-model="vm.newUser.email1">
+                <div data-ng-messages="vm.newUser.email1.$error" role="alert" data-ng-show="vm.newUser.email1.$touched">
+                  <div data-ng-message="required">Ce champ est obligatoire</div>
+                  <div data-ng-message="email">Cet e-mail n'est pas valide !</div>
+                </div>
+            </md-input-container>
+        </div>
+        <div layout="row" layout-align="start center">
+            <md-button type="submit" class="md-primary md-hue-1 md-raised" data-ng-click="vm.addUser()">Valider</md-button>
+        </div>
+    </form>
+</div>

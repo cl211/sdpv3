@@ -5,3 +5,33 @@
 .sdp-success {
   color: lightgreen;
 }
+
+.sdp-primary {
+  color: blue;
+}
+
+.sdp-clickable {
+  cursor: pointer;
+}
+
+.sdp-offset {
+  margin-left: 15px;
+}
+
+.sdp-adduser-zone {
+  background-color: #ebeef8;
+}
+
+.sdp-adduser-zone.ng-hide-remove {
+  -webkit-animation:bounceInDown 0.5;
+  -moz-animation:bounceInDown 0.5;
+  -o-animation:bounceInDown 0.5;
+  animation:bounceInDown 0.5s;
+}
+
+.sdp-adduser-zone.ng-hide {
+  -webkit-animation:bounceOutUp 0.5s;
+  -moz-animation:bounceOutUp 0.5s;
+  -o-animation:bounceOutUp 0.5s;
+  animation:bounceOutUp 0.5s;
+}

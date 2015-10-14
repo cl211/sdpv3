@@ -1,6 +1,15 @@
 # Site de IProm's de la Clun's 211
 Le site de prom's, le vrai !
 
+## Modules à installer de manière globale
+```js
+npm i -g apidoc
+npm i -g grunt-cli
+npm i -g broccoli-cli
+npm i -g bower
+npm i -g tsd
+```
+
 ## Changer de branche
 git checkout maBranche
 (pour créer la branche, ajouter -b)
@@ -13,15 +22,18 @@ git checkout maBranche
 * Accéder à la documentation à l'adresse http://localhost:8080/doc/
 
 ## Push sur GitHub
-* git status
-* git add dossiers/fichiers
-* git commit -m "Message de commit" -a
-* git push origin maBranche
+```js
+git status
+git add dossiers/fichiers
+git commit -m "Message de commit" -a
+git push origin maBranche
+```
 
 ## Update dependencies
 ```js
 npm install
 bower install
+tsd install
 ```
 
 ## Grunt
@@ -40,14 +52,6 @@ grunt tswire
 ```
 
 Remarque : si le typescript est mal utilisé dans le code, la génération du js échouera. On peut contourner le problème en ajoutant la commande --force
-
-## Modules à installer de manière globale
-```js
-npm i -g apidoc
-npm i -g grunt-cli
-npm i -g broccoli-cli
-npm i -g bower
-```
 
 ## Install dependencies
 ```js

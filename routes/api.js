@@ -1,3 +1,5 @@
+var validator = require('validator');
+
 module.exports = function (api, models) {
 
   var User = models.User;
@@ -31,8 +33,9 @@ module.exports = function (api, models) {
      *   /api/v1/users
      */
     .post(function(req, res) {
+      /** TODO: vérifier que l'adresse email n'est pas déjà utilisée */
       var user = new User();
-      if (req.body.email1) {
+      if (validator.isEmail(req.body.email1)) {
         user.email1 = req.body.email1
         user.save(function (err) {
             if (err) {
@@ -42,7 +45,7 @@ module.exports = function (api, models) {
             }
         });
       } else {
-          res.status(400).send({ message: 'Pas d\'adresse mail spécifiée' })
+          res.status(400).send({ message: 'Pas d\'adresse mail spécifiée ou adresse invalide' })
       }
     });
 

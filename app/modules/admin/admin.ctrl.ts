@@ -33,7 +33,7 @@ class AdminCtrl {
 
     function updateUsers(): void {
       vm.isLoading = true;
-      Restangular.all("users").getList().then(function(r) {
+      Restangular.all("users").getList().then(function(r: Array<sdp.user>) {
         vm.users = r;
         vm.isLoading = false;
       });

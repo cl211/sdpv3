@@ -17,7 +17,11 @@ module.exports = function (api, models) {
     .get(function(req, res) {
       /** TODO : gérer la pagination */
       User.find({}, function (err, users) {
-        res.status(200).json(users);
+        if(err) {
+          res.status(404).send(err);
+        } else {
+          res.status(200).json(users);
+        }
       });
     })
     /**
@@ -41,6 +45,7 @@ module.exports = function (api, models) {
             if (err) {
               res.status(400).send(err);
             } else {
+              res.set('Location', user._id);
               res.status(200).json({ message: 'Utilisateur créé' });
             }
         });
@@ -60,13 +65,24 @@ module.exports = function (api, models) {
        *   /api/v1/users/171
        */
       .get(function(req, res) {
-        User.findById(req.params.user_id, function (err, user) {
-          if(err) {
-            res.status(404).send(err);
-          } else {
-            res.status(200).send(user);
-          }
-        });
+        /** TODO: ajouter 'self' dans la doc */
+        if(req.params.user_id === 'self') {
+          User.findById(req.user._id, function (err, user) {
+            if(err) {
+              res.status(404).send(err);
+            } else {
+              res.status(200).send(user);
+            }
+          });
+        } else {
+          User.findById(req.params.user_id, function (err, user) {
+            if(err) {
+              res.status(404).send(err);
+            } else {
+              res.status(200).send(user);
+            }
+          });
+        }
       })
         /**
          * @api {delete} /users/:userId

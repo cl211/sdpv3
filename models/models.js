@@ -1,5 +1,6 @@
 var mongoose = require('mongoose');
-var findOrCreate = require('mongoose-findorcreate')
+var findOrCreate = require('mongoose-findorcreate');
+var enumerations = require('./enumerations');
 
 module.exports = function (usersDb, groupesDb, eventsDb) {
     var Schema = mongoose.Schema;
@@ -16,34 +17,29 @@ module.exports = function (usersDb, groupesDb, eventsDb) {
       bande: String,
       email1: String,
       email2: String,
+      roles: [{type: String, enum: enumerations.roles}],
       buquages: [BuquageSchema]
     });
     UserSchema.plugin(findOrCreate);
 
     var RoleSchema = new Schema({
-      name: String,
-      administration: Boolean
+      name: {type: String, enum: enumerations.roles},
+      permissions: [{type:String, enum: enumerations.permissions}]
     });
 
     var BuquageSchema = new Schema({
-      listeBuquage: String,
-      ecritureComptable: EcritureComptableSchema,
+      manip: String,
+      dateManip: Date,
+      dateCreation: Date,
       contestation: ContestationSchema,
-      isContested: Boolean
-    });
-
-    var ListeBuquageSchema = new Schema({
-      date: Date,
-      name: String
+      montant: Number,
+      isFromPgtoProms: Boolean
     });
 
     var ContestationSchema = new Schema({
       date: Date,
+      statut: {type: String, enum: enumerations.statut},
       description: String,
-      ecritureComptable: EcritureComptableSchema
-    });
-
-    var EcritureComptableSchema = new Schema({
       montant: Number,
       isFromPgtoProms: Boolean
     });

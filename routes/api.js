@@ -1,8 +1,14 @@
 var validator = require('validator');
+var enumerations = require('../models/enumerations');
 
 module.exports = function (api, models) {
 
   var User = models.User;
+
+  api.route('v1/boquettes')
+    .get(function(req, res) {
+
+    });
 
   api.route('/v1/users')
   /**

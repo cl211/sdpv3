@@ -3,11 +3,19 @@
 /// <reference path="../typings/angular-material/angular-material.d.ts" />
 /// <reference path="../typings/angularjs/angular-sanitize.d.ts" />
 /// <reference path="../typings/angularjs/angular-route.d.ts" />
+/// <reference path="../typings/moment/moment.d.ts" />
 /// <reference path="../typings/underscore/underscore.d.ts" />
 /// <reference path="../typings/d3/d3.d.ts" />
 /// <reference path="../typings/restangular/restangular.d.ts" />
 "use strict";
-angular.module("sdp", ["ngMaterial", "ngAnimate", "ngMessages", "nvd3", "ngRoute", "angularMoment", "restangular", "sdp.admin", "sdp.core"]);
+
+interface Window {
+  moment: moment.MomentStatic;
+}
+
+angular.module('moment', []).factory('moment', function () { return window.moment; });
+
+angular.module("sdp", ["ngMaterial", "ngAnimate", "ngMessages", "nvd3", "ngRoute", "angularMoment", "restangular", "sdp.admin", "sdp.core", "moment"]);
 angular.module("sdp.admin", []);
 angular.module("sdp.core", []);
 

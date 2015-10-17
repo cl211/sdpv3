@@ -1,5 +1,19 @@
-<md-toolbar class="md-primary md-hue-1">
-  <div class="md-toolbar-tools">
-    <span>État de mon compte PG</span>
-  </div>
-</md-toolbar>
+<div class="harpagserie-root">
+  <md-toolbar class="md-primary md-hue-1">
+    <div class="md-toolbar-tools">
+      <span>Harpag'serie</span>
+    </div>
+  </md-toolbar>
+
+  <section class="navigation">
+    <a ng-click="vm.currentTab = 'myAccount'" ng-class="{active: (vm.currentTab == 'myAccount')}">Mon Compte</a>
+    <a ng-click="vm.currentTab = 'allBuquages'" ng-class="{active: (vm.currentTab == 'allBuquages')}">Tous les buquages</a>
+    <a ng-click="vm.currentTab = 'addOne'" ng-class="{active: (vm.currentTab == 'addOne')}">Ajouter un buquage</a>
+    <a ng-click="vm.currentTab = 'importCsv'" ng-class="{active: (vm.currentTab == 'importCsv')}">Importer en masse</a>
+  </section>
+
+  <section class="myAccount" ng-if="vm.currentTab == 'myAccount'">
+    <pre>{{vm.principal | json}}</pre>
+    <div>Votre solde au {{vm.today}}</div>
+  </section>
+</div>

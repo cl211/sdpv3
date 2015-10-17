@@ -7,3 +7,5 @@ app/**/*.js
 app/**/*.js.map
 dist/
 typings/
+app/styles.css
+app/styles.css.map

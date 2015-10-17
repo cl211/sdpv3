@@ -14,18 +14,18 @@ module.exports = function (usersDb, groupesDb, eventsDb) {
       latitude: Number,
       longitude: Number,
       phone: String,
-      grouperegional: {type: String, enum: enumerations.groupesRegionaux),
-      boquette: {type: String, enum: enumerations.boquettes},
+      grouperegional: { type: String, enum: enumerations.groupesRegionaux },
+      boquette: { type: String, enum: enumerations.boquettes },
       email1: String,
       email2: String,
-      roles: [{type: String, enum: enumerations.roles}],
+      roles: [{ type: String, enum: enumerations.roles }],
       buquages: [BuquageSchema]
     });
     UserSchema.plugin(findOrCreate);
 
     var RoleSchema = new Schema({
       name: {type: String, enum: enumerations.roles},
-      permissions: [{type:String, enum: enumerations.permissions}]
+      permissions: [{ type:String, enum: enumerations.permissions }]
     });
 
     var BuquageSchema = new Schema({
@@ -39,7 +39,7 @@ module.exports = function (usersDb, groupesDb, eventsDb) {
 
     var ContestationSchema = new Schema({
       date: Date,
-      statut: {type: String, enum: enumerations.statut},
+      statut: { type: String, enum: enumerations.statut },
       description: String,
       montant: Number,
       isFromPgtoProms: Boolean

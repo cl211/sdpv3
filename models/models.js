@@ -5,6 +5,21 @@ var enumerations = require('./enumerations');
 module.exports = function (usersDb, groupesDb, eventsDb) {
     var Schema = mongoose.Schema;
 
+    var BuquageSchema = new Schema({
+      manip: String,
+      dateManip: Date,
+      dateCreation: Date,
+      contestation: {
+        date: Date,
+        statut: {type: String, enum: enumerations.statut},
+        description: String,
+        montant: Number,
+        isFromPgtoProms: Boolean
+      },
+      montant: Number,
+      isFromPgToProms: Boolean
+    });
+
     var UserSchema = new Schema({
       buque: String,
       fams: String,
@@ -14,8 +29,8 @@ module.exports = function (usersDb, groupesDb, eventsDb) {
       latitude: Number,
       longitude: Number,
       phone: String,
-      grouperegional: { type: String, enum: enumerations.groupesRegionaux },
-      boquette: { type: String, enum: enumerations.boquettes },
+      groupeRegional: { type: String, enum: enumerations.groupesRegionaux },
+      boquette: {type: String, enum: enumerations.boquettes},
       email1: String,
       email2: String,
       roles: [{ type: String, enum: enumerations.roles }],
@@ -26,23 +41,6 @@ module.exports = function (usersDb, groupesDb, eventsDb) {
     var RoleSchema = new Schema({
       name: {type: String, enum: enumerations.roles},
       permissions: [{ type:String, enum: enumerations.permissions }]
-    });
-
-    var BuquageSchema = new Schema({
-      manip: String,
-      dateManip: Date,
-      dateCreation: Date,
-      contestation: ContestationSchema,
-      montant: Number,
-      isFromPgtoProms: Boolean
-    });
-
-    var ContestationSchema = new Schema({
-      date: Date,
-      statut: { type: String, enum: enumerations.statut },
-      description: String,
-      montant: Number,
-      isFromPgtoProms: Boolean
     });
 
     var GroupeItemSchema = new Schema({
@@ -86,7 +84,6 @@ module.exports = function (usersDb, groupesDb, eventsDb) {
         Groupe: groupesDb.model('Groupe', GroupeSchema),
         Event: eventsDb.model('Event', EventSchema),
         Buquage: usersDb.model('Buquage', BuquageSchema),
-        Role: usersDb.model('Role', RoleSchema),
-        Contestation: usersDb.model('Contestation', ContestationSchema)
+        Role: usersDb.model('Role', RoleSchema)
     }
 }

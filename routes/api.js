@@ -119,7 +119,7 @@ module.exports = function (api, models) {
               res.status(400).send(err);
             } else {
               res.set('Location', user._id);
-              res.status(200).json({ message: 'Utilisateur créé' });
+              res.status(201).json({ message: 'Utilisateur créé' });
             }
         });
       } else {
@@ -187,7 +187,29 @@ module.exports = function (api, models) {
          *   /api/v1/users/171
          */
       .put(function(req, res) {
-        /** TODO */
+        User.findById(req.params.user_id, function(err, user) {
+          if(err) {
+            res.status(404).send(err);
+          } else {
+
+            var tester = function(property) {
+              if(typeof req.body[property] !== 'undefined') {
+                user[property] = req.body[property];
+              }
+            }
+            'buque fams adress firstname lastname adress phone email2'.split(' ').forEach(function(property) {
+              tester(property);
+            });
+
+            user.save(function(err) {
+              if(err) {
+                res.status(400).send({ message: 'Can\'t save user !', success: false });
+              } else {
+                res.status(200).send({ message: 'Updated !', success: true });
+              }
+            });
+          }
+        });
       });
 
       api.route('/v1/buquages')

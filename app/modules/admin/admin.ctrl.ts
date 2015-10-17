@@ -1,4 +1,5 @@
 "use strict";
+/** Le controller qui gère l'administration */
 class AdminCtrl {
   static IID: string = "AdminCtrl";
   static $inject: Array<string> = ["users", "$log", "$http", "Restangular", "tools"];

@@ -176,7 +176,7 @@ module.exports = function (api, models) {
         });
       })
         /**
-         * @api {update} /users/:userId
+         * @api {put} /users/:userId
          * @apiDescription Cette requête permet de mettre à jour les informations d'un utilisateur
          * @apiName UpdateUsers
          * @apiGroup Users
@@ -187,4 +187,32 @@ module.exports = function (api, models) {
       .put(function(req, res) {
         /** TODO */
       });
+
+      api.route('/v1/users/:user_id/buquage')
+        /**
+         * @api {get} /users/:user_id/buquage
+         * @apiDescription Cette requête permet de récupérer la liste des boquettes
+         * @apiName GetBuquages
+         * @apiGroup Buquages
+         * @apiVersion 1.0.0
+         * @apiExample {js} Example :
+         *   /api/v1/users/:user_id/buquage
+         */
+        .get(function(req, res) {
+          res.status(200).send({ messaye: "OK !", success: true });
+        })
+        .post(function(req, res) {
+          res.status(200).send({ messaye: "OK !", success: true });
+        });
+
+      api.route('/v1/users/:user_id/buquages/:buquage_id')
+        .get(function(req, res) {
+          res.status(200).send({ messaye: "OK !", success: true });
+        })
+        .delete(function(req, res) {
+          res.status(200).send({ messaye: "OK !", success: true });
+        })
+        .put(function(req, res) {
+          res.status(200).send({ messaye: "OK !", success: true });
+        })
 }

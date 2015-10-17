@@ -16,10 +16,37 @@ module.exports = function (usersDb, groupesDb, eventsDb) {
       bande: String,
       email1: String,
       email2: String,
-      isAdmin: Boolean,
-      isDDP: Boolean
+      buquages: [BuquageSchema]
     });
     UserSchema.plugin(findOrCreate);
+
+    var RoleSchema = new Schema({
+      name: String,
+      administration: Boolean
+    });
+
+    var BuquageSchema = new Schema({
+      listeBuquage: String,
+      ecritureComptable: EcritureComptableSchema,
+      contestation: ContestationSchema,
+      isContested: Boolean
+    });
+
+    var ListeBuquageSchema = new Schema({
+      date: Date,
+      name: String
+    });
+
+    var ContestationSchema = new Schema({
+      date: Date,
+      description: String,
+      ecritureComptable: EcritureComptableSchema
+    });
+
+    var EcritureComptableSchema = new Schema({
+      montant: Number,
+      isFromPgtoProms: Boolean
+    });
 
     var GroupeItemSchema = new Schema({
       name: String,
@@ -53,9 +80,16 @@ module.exports = function (usersDb, groupesDb, eventsDb) {
       admin: [UserSchema]
     });
 
+    var NotificationSchema = new Schema({
+
+    });
+
     return {
         User: usersDb.model('User', UserSchema),
         Groupe: groupesDb.model('Groupe', GroupeSchema),
-        Event: eventsDb.model('Event', EventSchema)
+        Event: eventsDb.model('Event', EventSchema),
+        Buquage: usersDb.model('Buquage', BuquageSchema),
+        Role: usersDb.model('Role', RoleSchema),
+        Contestation: usersDb.model('Contestation', ContestationSchema)
     }
 }

@@ -9,7 +9,7 @@ class AdminCtrl {
   /** Supprimer un utilisateur */
   deleteUser: (id: string, event: MouseEvent) => void;
   /** Ajouter un utilisateur */
-  addUser: (id: string) => void;
+  addUser: () => void;
   /** Ouvre le panneau d'ajout */
   toggleAddForm: () => void;
   /** Boolean qui vaut vrai si le formulaire d'ajout d'utilisateur est ouvert */

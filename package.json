@@ -47,6 +47,6 @@
   "homepage": "https://github.com/cl211/sdpv3#readme",
   "apidoc": {
     "title": "SDP API",
-    "url": "http://localhost.fr:8080"
+    "url": "http://localhost.fr:8080/api/v1"
   }
 }

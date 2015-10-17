@@ -14,7 +14,7 @@ module.exports = function (usersDb, groupesDb, eventsDb) {
       latitude: Number,
       longitude: Number,
       phone: String,
-      grouperegional: {type: String, enum: enumerations.grouperegionals),
+      grouperegional: {type: String, enum: enumerations.groupesRegionaux),
       boquette: {type: String, enum: enumerations.boquettes},
       email1: String,
       email2: String,

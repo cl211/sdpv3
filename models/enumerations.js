@@ -3,7 +3,7 @@ module.exports = funtion() {
     roles: ['user','ddp','harpags','admin'],
     permissions: ['consulter son solde','consulter tous les soldes','effectuer un buquage'],
     statut: ['contesting','denied','approved'],
-    boquettes: ['MICHOKO','Kell\'Oc\'s'],
-    grouperegionals: ['AM28',"AM75"]
+    boquettes: ['MICHOKO','Kelloc\'s'],
+    groupesRegionaux: ['AM28',"AM75"]
   }
 };

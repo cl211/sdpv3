@@ -10,6 +10,7 @@ module.exports = function (usersDb, groupesDb, eventsDb) {
       dateManip: Date,
       dateCreation: Date,
       contestation: {
+        contestataire: String,
         date: Date,
         statut: {type: String, enum: enumerations.statut},
         description: String,

@@ -13,7 +13,25 @@
   </section>
 
   <section class="myAccount" ng-if="vm.currentTab == 'myAccount'">
-    <pre>{{vm.principal | json}}</pre>
-    <div>Votre solde au {{vm.today}}</div>
+    <div>
+      <span>Votre solde au {{vm.today}} </span>
+      <span class="solde" ng-class="{positif: vm.solde > 0, negatif: vm.solde < 0}">{{vm.solde >= 0 ? '+' : '-'}} {{vm.solde}}</span>
+    </div>
+    <table>
+      <tr>
+        <th>Date Manip</th>
+        <th>Libellé Manip</th>
+        <th>Valeur</th>
+      </tr>
+      <tr ng-repeat="buquage in vm.buquages">
+        <td>{{buquage.dateManip.format('LL')}}</td>
+        <td>{{buquage.manip}}</td>
+        <td ng-class="{positif: buquage.isFromPgtoProms, negatif: !buquage.isFromPgtoProms}">{{buquage.isFromPgtoProms ? '+' : '-'}} {{buquage.montant}}</td>
+      </tr>
+    </table>
+    <div>
+      <span>Votre solde au {{vm.today}} </span>
+      <span class="solde" ng-class="{positif: vm.solde > 0, negatif: vm.solde < 0}">{{vm.solde >= 0 ? '+' : '-'}} {{vm.solde}}</span>
+    </div>
   </section>
 </div>

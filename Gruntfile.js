@@ -1,9 +1,22 @@
 module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-wiredep');
     grunt.loadNpmTasks('grunt-injector');
+    grunt.loadNpmTasks('grunt-contrib-less');
     grunt.loadNpmTasks('grunt-typescript');
 
 	grunt.initConfig({
+      less: {
+        development: {
+          options: {
+            compress: true,
+            yuicompress: true,
+            optimization: 2
+          },
+          files: {
+            "app/styles.css": "app/styles.less" // destination file and source file
+          }
+        }
+      },
 	    wiredep: {
 	        task: {
 	            src: ['app/index.html']
@@ -16,7 +29,7 @@ module.exports = function(grunt) {
 	        },
 	        local_dependencies: {
 	            files: {
-	                'app/index.html': ['app/index.js', 'app/**/*.js', 'app/**/*.css'],
+	                'app/index.html': ['app/index.js', 'app/**/*.js', 'app/*.css'],
 	            }
 	        }
 	    },
@@ -35,7 +48,7 @@ module.exports = function(grunt) {
 	});
 
 grunt.registerTask('ts', ['typescript']);
-grunt.registerTask('wire', ['injector', 'wiredep']);
-grunt.registerTask('tswire', ['typescript', 'injector', 'wiredep']);
+grunt.registerTask('wire', ['less','injector', 'wiredep']);
+grunt.registerTask('tswire', ['typescript','less', 'injector', 'wiredep']);
 
 }

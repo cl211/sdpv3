@@ -1,25 +1,49 @@
 var mongoose = require('mongoose');
-var findOrCreate = require('mongoose-findorcreate')
+var findOrCreate = require('mongoose-findorcreate');
+var enumerations = require('./enumerations');
 
 module.exports = function (usersDb, groupesDb, eventsDb) {
     var Schema = mongoose.Schema;
 
     var UserSchema = new Schema({
-      googleId: String,
       buque: String,
       fams: String,
-      picture: String,
       firstname: String,
       lastname: String,
       adress: String,
+      latitude: Number,
+      longitude: Number,
       phone: String,
-      bande: String,
+      bande: {type: String, enum: enumerations.bandes),
+      boquette: {type: String, enum: enumerations.boquettes},
       email1: String,
       email2: String,
-      isAdmin: Boolean,
-      isDDP: Boolean
+      roles: [{type: String, enum: enumerations.roles}],
+      buquages: [BuquageSchema]
     });
     UserSchema.plugin(findOrCreate);
+
+    var RoleSchema = new Schema({
+      name: {type: String, enum: enumerations.roles},
+      permissions: [{type:String, enum: enumerations.permissions}]
+    });
+
+    var BuquageSchema = new Schema({
+      manip: String,
+      dateManip: Date,
+      dateCreation: Date,
+      contestation: ContestationSchema,
+      montant: Number,
+      isFromPgtoProms: Boolean
+    });
+
+    var ContestationSchema = new Schema({
+      date: Date,
+      statut: {type: String, enum: enumerations.statut},
+      description: String,
+      montant: Number,
+      isFromPgtoProms: Boolean
+    });
 
     var GroupeItemSchema = new Schema({
       name: String,
@@ -53,9 +77,16 @@ module.exports = function (usersDb, groupesDb, eventsDb) {
       admin: [UserSchema]
     });
 
+    var NotificationSchema = new Schema({
+
+    });
+
     return {
         User: usersDb.model('User', UserSchema),
         Groupe: groupesDb.model('Groupe', GroupeSchema),
-        Event: eventsDb.model('Event', EventSchema)
+        Event: eventsDb.model('Event', EventSchema),
+        Buquage: usersDb.model('Buquage', BuquageSchema),
+        Role: usersDb.model('Role', RoleSchema),
+        Contestation: usersDb.model('Contestation', ContestationSchema)
     }
 }

@@ -6,15 +6,16 @@ module.exports = function (usersDb, groupesDb, eventsDb) {
     var Schema = mongoose.Schema;
 
     var UserSchema = new Schema({
-      googleId: String,
       buque: String,
       fams: String,
-      picture: String,
       firstname: String,
       lastname: String,
       adress: String,
+      latitude: Number,
+      longitude: Number,
       phone: String,
-      bande: String,
+      bande: {type: String, enum: enumerations.bandes),
+      boquette: {type: String, enum: enumerations.boquettes},
       email1: String,
       email2: String,
       roles: [{type: String, enum: enumerations.roles}],

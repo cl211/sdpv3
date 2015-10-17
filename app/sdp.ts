@@ -1,10 +1,17 @@
 /** Les classes et interfaces utilisées dans le SDP */
 module sdp {
   export interface user {
-    nom: string;
-    prenom: string;
     buque: string;
     fams: string;
-    proms: string;
+    firstname: string;
+    lastname: string;
+    adress: string;
+    latitude: number;
+    longitude: number;
+    phone: string;
+    grouperegionals: string;
+    boquettes: string;
+    email2: string;
+    roles: Array<string>;
   }
 }

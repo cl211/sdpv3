@@ -4,6 +4,6 @@ module.exports = funtion() {
     permissions: ['consulter son solde','consulter tous les soldes','effectuer un buquage'],
     statut: ['contesting','denied','approved'],
     boquettes: ['MICHOKO','Kell\'Oc\'s'],
-    bandes: ['matoüs',"piafs","anguilles"]
+    grouperegionals: ['AM28',"AM75"]
   }
 };

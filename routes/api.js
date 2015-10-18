@@ -187,11 +187,12 @@ module.exports = function (api, models) {
          *   /api/v1/users/171
          */
       .put(function(req, res) {
+        console.log(req.body)
+        console.log(req.params)
         User.findById(req.params.user_id, function(err, user) {
           if(err) {
             res.status(404).send(err);
           } else {
-
             var tester = function(property) {
               if(typeof req.body[property] !== 'undefined') {
                 user[property] = req.body[property];

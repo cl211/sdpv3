@@ -1,17 +1,37 @@
-<md-dialog aria-label="Fiche utilisateur">
+<md-dialog aria-label="Fiche utilisateur" class="sdp-popup">
     <md-toolbar class="md-primary md-hue-1">
         <div class="md-toolbar-tools">
             Fiche utilisateur
         </div>
     </md-toolbar>
-    <md-dialog-content>
+    <md-dialog-content layout="column" layout-padding layout-margin>
 
-      Test
+      <md-input-container>
+        <label>Prénom</label>
+        <input type="text" ng-model="vm.user.firstname">
+      </md-input-container>
+
+      <md-input-container>
+        <label>Nom</label>
+        <input type="text" ng-model="vm.user.lastname">
+      </md-input-container>
+
+      <md-input-container>
+        <label>Buque</label>
+        <input type="text" ng-model="vm.user.buque">
+      </md-input-container>
+
+      <md-input-container>
+        <label>Fam's</label>
+        <input type="text" ng-model="vm.user.fams">
+      </md-input-container>
+
+
 
     </md-dialog-content>
     <div class="md-actions" layout="row">
         <span flex></span>
-        <md-button ng-click="cancel()" class="md-primary">Retour</md-button>
-        <md-button ng-click="valider()" class="md-warn md-raised">Sauvegarder</md-button>
+        <md-button ng-click="vm.hide()" class="md-primary">Retour</md-button>
+        <md-button ng-click="vm.valider()" class="md-warn md-raised">Sauvegarder</md-button>
     </div>
 </md-dialog>

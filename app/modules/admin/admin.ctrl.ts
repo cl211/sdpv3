@@ -2,7 +2,7 @@
 /** Le controller qui gère l'administration */
 class AdminCtrl {
   static IID: string = "AdminCtrl";
-  static $inject: Array<string> = ["users", "$log", "$http", "Restangular", "tools"];
+  static $inject: Array<string> = ["users", "$log", "$http", "Restangular", "tools", "$mdDialog", "$q"];
   /** La liste des utilisateurs */
   users: Array<sdp.user>;
   /** Sélection d'un user */
@@ -20,7 +20,14 @@ class AdminCtrl {
   /** Variable qui va contenir le mail tapé pour un nouvel utilisateur */
   newUser: { email1: string };
 
-  constructor(users: users, $log: ng.ILogService, $http: ng.IHttpService, Restangular: restangular.IService, tools: tools) {
+  constructor(
+    users: users,
+    $log: ng.ILogService,
+    $http: ng.IHttpService,
+    Restangular: restangular.IService,
+    tools: tools,
+    $mdDialog: angular.material.IDialogService,
+    $q: ng.IQService) {
     var vm: AdminCtrl = this;
     vm.select = select;
     vm.deleteUser = deleteUser;
@@ -65,8 +72,28 @@ class AdminCtrl {
     }
 
     function select(id: string, event: MouseEvent): void {
-      Restangular.one("users", id).get().then(function(r) {
-        $log.log(r);
+      Restangular.one("users", id).get().then(function(r: sdp.user) {
+        /** TODO: typage correct */
+        var config: any = {
+          controller: "FicheDialogCtrl",
+          controllerAs: "vm",
+          templateUrl: "modules/fiche/fiche.dialog.view.html",
+          targetEvent: event,
+          resolve: {
+            userData: function() {
+              return r;
+            }
+          }
+        };
+        $mdDialog.show(config).then(function(answer: sdp.user) {
+          Restangular.one("users", id).put(answer).then(function(r: api.answer) {
+            if(r.success) {
+              tools.notify("Utilisateur mis à jour avec succès !");
+            } else {
+              tools.notify(r.message);
+            }
+          });
+        });
       });
     }
   }

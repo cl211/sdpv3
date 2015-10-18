@@ -14,23 +14,20 @@ class FicheDialogCtrl {
     var vm: FicheDialogCtrl = this;
     vm.hide = hide;
     vm.valider = valider;
-    vm.user = userData;
+    vm.user = {
+      buque: userData.buque,
+      fams: userData.fams,
+      firstname: userData.firstname,
+      lastname: userData.lastname
+     }
 
     function hide(): void {
       $mdDialog.cancel();
     }
 
     function valider(): void {
-      var requete: any = prepareRequete(vm.user);
-      $mdDialog.hide(requete);
+      $mdDialog.hide(vm.user);
     }
-
-    function prepareRequete(user: sdp.user):any {
-      var result: any = {};
-
-      return result;
-    }
-
   }
 }
 angular.module("sdp").controller(FicheDialogCtrl.IID, FicheDialogCtrl);

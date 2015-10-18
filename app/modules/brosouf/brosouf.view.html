@@ -13,24 +13,24 @@
   </section>
 
   <section class="myAccount" ng-if="vm.currentTab == 'myAccount'">
-    <div class="bootstrap container">
-      <div class="row summary">
-        <span class="col-xs-10">Votre solde au {{vm.today}} </span>
-        <span class="solde col-xs-2" ng-class="{positif: vm.solde > 0, negatif: vm.solde < 0}">{{vm.solde >= 0 ? '+' : '-'}} {{vm.solde}}</span>
+    <div>
+      <div layout="row" class="summary">
+        <span flex="80">Votre solde au {{vm.today}} </span>
+        <span flex="20" class="solde" ng-class="{positif: vm.solde > 0, negatif: vm.solde < 0}">{{vm.solde >= 0 ? '+' : '-'}} {{vm.solde}}</span>
       </div>
-      <div class="row">
-        <div class="col-xs-3">Date Manip</div>
-        <div class="col-xs-7">Libellé Manip</div>
-        <div class="col-xs-2">Valeur</div>
+      <div layout="row">
+        <div flex="30">Date Manip</div>
+        <div flex="50">Libellé Manip</div>
+        <div flex="20">Valeur</div>
       </div>
-      <div ng-repeat="buquage in vm.buquages" class="row">
-        <div class="col-xs-3">{{buquage.dateManip.format('LL')}}</div>
-        <div class="col-xs-7">{{buquage.manip}}</div>
-        <div class="col-xs-2" ng-class="{positif: buquage.isFromPgtoProms, negatif: !buquage.isFromPgtoProms}">{{buquage.isFromPgtoProms ? '+' : '-'}} {{buquage.montant}}</div>
+      <div ng-repeat="buquage in vm.buquages" layout="row">
+        <div flex="30">{{buquage.dateManip.format('LL')}}</div>
+        <div flex="50">{{buquage.manip}}</div>
+        <div flex="20" ng-class="{positif: buquage.isFromPgtoProms, negatif: !buquage.isFromPgtoProms}">{{buquage.isFromPgtoProms ? '+' : '-'}} {{buquage.montant}}</div>
       </div>
-      <div class="row summary">
-        <span class="col-xs-10">Votre solde au {{vm.today}} </span>
-        <span class="solde col-xs-2" ng-class="{positif: vm.solde > 0, negatif: vm.solde < 0}">{{vm.solde >= 0 ? '+' : '-'}} {{vm.solde}}</span>
+      <div layout="row" class="summary">
+        <span flex="80">Votre solde au {{vm.today}} </span>
+        <span flex="20" class="solde" ng-class="{positif: vm.solde > 0, negatif: vm.solde < 0}">{{vm.solde >= 0 ? '+' : '-'}} {{vm.solde}}</span>
       </div>
     </div>
   </section>

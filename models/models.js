@@ -26,6 +26,7 @@ module.exports = function (usersDb, groupesDb, eventsDb) {
       firstname: String,
       lastname: String,
       adress: String,
+      picture: String,
       latitude: Number,
       longitude: Number,
       phone: String,
@@ -33,6 +34,9 @@ module.exports = function (usersDb, groupesDb, eventsDb) {
       boquette: {type: String, enum: enumerations.boquettes},
       email1: String,
       email2: String,
+      firm: String,
+      sector: String,
+      job: String,
       roles: [{ type: String, enum: enumerations.roles }],
       buquages: [BuquageSchema]
     });

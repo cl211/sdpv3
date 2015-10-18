@@ -7,27 +7,52 @@
 <md-content>
   <div>{{vm.user.email1}}</div>
 </md-content>
-<div layout="row" layout-margin>
-  <div flex class="md-whiteframe-3dp">
+<!--//
+  <section class="md-whiteframe-3dp informations-personelles">
     <md-toolbar class="md-primary md-hue-2">
       <div class="md-toolbar-tools">
         <span>Informations personnelles</span>
+        <span flex></span>
+        <md-button class="md-icon-button" ng-click="isEdition = !isEdition"><i class="fa fa-pencil"></i></md-button>
       </div>
     </md-toolbar>
     <md-content>
       <md-list>
         <md-list-item ng-repeat="data in vm.user">
-          <strong>{{ data.name }} :</strong> {{ data.value }} <input type="text" ng-model="vm.user[$index].value" />
+          <strong>{{ data.name }} :&nbsp;</strong>
+          <span ng-if="!data.isEditable || (data.isEditable && !isEdition)">{{ data.value }}</span>
+          <input ng-if="data.isEditable && isEdition" type="text" ng-model="vm.user[$index].value" />
           <md-divider ng-if="!$last"></md-divider>
         </md-list-item>
+
       </md-list>
     </md-content>
-  </div>
-  <div flex>
-    <md-toolbar class="md-primary md-hue-2">
-    <div class="md-toolbar-tools">
-      <span>Adresse</span>
+  </section>
+-->
+  <section layout="row">
+    <div flex=20>
+      <div>Hudmo 168</div>
+      <div class="text-buque">Dit Cloteaux Geoffroy</div>
+      <div layout="column" layout-align="center center">
+        <div>MI-CHO-KO</div>
+        <img class="user-picture" src="https://lh5.googleusercontent.com/-syLOFEQaXlk/VAc_vPecz7I/AAAAAAAAAIA/eYZGIKCej9w/s705-no/00486f66-11f7-4e10-a85d-765270a57b08" />
+      </div>
     </div>
-  </md-toolbar>
-  </div>
-</div>
+
+    <div flex=20 layout="column" class="user-info">
+          <div layout="row">
+            <div flex layout="column" layout-align="center center">Informations personnelles</div>
+            <md-button class="md-icon-button" ng-click="isEdition = !isEdition"><i class="fa fa-pencil"></i></md-button>
+          </div>
+      <div><i class="fa fa-phone"></i> : 060324****</div>
+      <div><i class="fa fa-envelope"></i> : ****@gadz.org</div>
+      <div>Société : Hahaha</div>
+      <div>Secteur : Hahaha</div>
+      <div>Métier : Hahaha</div>
+      <div>Adresse : Hahaha</div>
+      <md-button class="md-warn md-raised md-hue-1" ng-disabled="true">Geolocaliser</md-button>
+      <div>Groupe Régional : Hahaha</div>
+    </div>
+
+    <div flex></div>
+  </section>

@@ -19,56 +19,62 @@ class UserService {
 
         user.push({
           value: input.buque,
-          name: "Buque",
-          isEditable: false
+          name: "Buque"
         });
 
         user.push({
           value: input.fams,
-          name: "Fam's",
-          isEditable: false
+          name: "Fam's"
         });
 
         user.push({
           value: input.boquette,
-          name: "Boquette",
-          isEditable: false
+          name: "Boquette"
         });
 
         user.push({
           value: input.lastname,
-          name: "Nom",
-          isEditable: false
+          name: "Nom"
         });
 
         user.push({
           value: input.firstname,
-          name: "Prénom",
-          isEditable: false
+          name: "Prénom"
+        });
+
+        user.push({
+          value: input.picture,
+          name: "URL Picture"
         });
 
         user.push({
           value: input.phone,
-          name: "Téléphone",
-          isEditable: true
-        });
-
-        user.push({
-          value: input.adress,
-          name: "Adresse",
-          isEditable: false
-        });
-
-        user.push({
-          value: input.groupeRegional,
-          name: "Groupe régional",
-          isEditable: true
+          name: "Téléphone"
         });
 
         user.push({
           value: input.email2,
-          name: "E-mail secondaire",
-          isEditable: true
+          name: "E-mail secondaire"
+        });
+
+        user.push({
+          value: input.adress,
+          name: "Adresse"
+        });
+
+        user.push({
+          value: input.longitude,
+          name: "Longitude"
+        });
+
+        user.push({
+          value: input.latitude,
+          name: "Latitude"
+        });
+
+        user.push({
+          value: input.groupeRegional,
+          name: "Groupe régional"
         });
 
         return user;

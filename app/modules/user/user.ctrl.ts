@@ -3,7 +3,7 @@ class UserCtrl {
   static IID: string = "UserCtrl";
   static $inject: Array<string> = ["Restangular", "UserService"];
   /**Liste des utilisateurs*/
-  user: Array<sdp.property>;
+  user: sdp.user;
   /**Fonction pour sauvegarder les modifications de champs utilisateurs*/
   saveUser: () => void;
 
@@ -14,7 +14,7 @@ class UserCtrl {
 
     function updateUser(): void {
       Restangular.one("users", "self").get().then(function(_r: sdp.user) {
-        vm.user = UserService.prepareUser(_r);
+        vm.user = _r;
       });
     }
 

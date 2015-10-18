@@ -2,7 +2,7 @@
 /** Le controller qui gère l'administration */
 class AdminCtrl {
   static IID: string = "AdminCtrl";
-  static $inject: Array<string> = ["users", "$log", "$http", "Restangular", "tools", "$mdDialog", "$q"];
+  static $inject: Array<string> = ["users", "Restangular", "tools", "$mdDialog"];
   /** La liste des utilisateurs */
   users: Array<sdp.user>;
   /** Sélection d'un user */
@@ -20,14 +20,7 @@ class AdminCtrl {
   /** Variable qui va contenir le mail tapé pour un nouvel utilisateur */
   newUser: { email1: string };
 
-  constructor(
-    users: users,
-    $log: ng.ILogService,
-    $http: ng.IHttpService,
-    Restangular: restangular.IService,
-    tools: tools,
-    $mdDialog: angular.material.IDialogService,
-    $q: ng.IQService) {
+  constructor(users: users, Restangular: restangular.IService, tools: tools, $mdDialog: angular.material.IDialogService) {
     var vm: AdminCtrl = this;
     vm.select = select;
     vm.deleteUser = deleteUser;
@@ -86,7 +79,13 @@ class AdminCtrl {
           }
         };
         $mdDialog.show(config).then(function(answer: restangular.IElement) {
-          answer.put();
+          answer.put().then(function(resp: api.answer) {
+            if(resp.success) {
+              tools.notify("Utilisateur correctement mis à jour");
+            } else {
+              tools.notify(resp.message);
+            }
+          });
         });
       });
     }

@@ -4,28 +4,41 @@
             Fiche utilisateur
         </div>
     </md-toolbar>
-    <md-dialog-content layout="column" layout-padding layout-margin>
+    <md-dialog-content data-layout="column" data-layout-padding data-layout-margin>
 
-      <md-input-container>
-        <label>Prénom</label>
-        <input type="text" ng-model="vm.user.firstname">
-      </md-input-container>
+      <div data-layout="row">
+        <md-input-container data-flex="25">
+          <label>Prénom</label>
+          <input type="text" data-ng-model="vm.user.firstname">
+        </md-input-container>
 
-      <md-input-container>
-        <label>Nom</label>
-        <input type="text" ng-model="vm.user.lastname">
-      </md-input-container>
+        <md-input-container data-flex="25">
+          <label>Nom</label>
+          <input type="text" data-ng-model="vm.user.lastname">
+        </md-input-container>
 
-      <md-input-container>
-        <label>Buque</label>
-        <input type="text" ng-model="vm.user.buque">
-      </md-input-container>
+        <md-input-container data-flex="25">
+          <label>Buque</label>
+          <input type="text" data-ng-model="vm.user.buque">
+        </md-input-container>
 
-      <md-input-container>
-        <label>Fam's</label>
-        <input type="text" ng-model="vm.user.fams">
-      </md-input-container>
+        <md-input-container data-flex="25">
+          <label>Fam's</label>
+          <input type="text" data-ng-model="vm.user.fams">
+        </md-input-container>
+      </div>
 
+      <div data-layout="row">
+        <md-input-container data-flex="25">
+          <label>Téléphone</label>
+          <input type="text" data-ng-model="vm.user.phone">
+        </md-input-container>
+
+        <md-input-container data-flex="25">
+          <label>Adresse</label>
+          <input type="text" data-ng-model="vm.user.adress">
+        </md-input-container>
+      </div>
 
 
     </md-dialog-content>

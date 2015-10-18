@@ -85,9 +85,10 @@ class AdminCtrl {
             }
           }
         };
-        $mdDialog.show(config).then(function(answer) {
+        $mdDialog.show(config).then(function(answer: sdp.user) {
+
           $http.put("/api/v1/users/" + r._id, answer).then(function() {
-            tools.notify("lol")
+            tools.notify("Utilisateur mis à jour !")
           })
           /*
           Restangular.one("users", id).put(answer.$object).then(function(r) {

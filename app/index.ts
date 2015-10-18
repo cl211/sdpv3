@@ -55,6 +55,7 @@ class RouteConfig {
         });
 
     RestangularProvider.setBaseUrl("api/v1/");
+    RestangularProvider.setRestangularFields({ id: '_id' });
   }
 }
 

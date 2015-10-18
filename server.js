@@ -47,10 +47,10 @@ passport.use(new GoogleStrategy({
   function(accessToken, refreshToken, profile, done) {
     if(profile._json.domain === "gadz.org"){
       /** TODO : ici il ne faudra plus créer systématiquement mais juste find */
-      User.findOrCreate({ email1: profile.emails[0].value }, { googleId: profile.id }, function (err, user, created) {
+      User.findOrCreate({ email1: profile.emails[0].value }, { googleId: profile.id, picture: profile.picture }, function (err, user, created) {
         return done(err, user);
       });
-    }else{
+    } else {
         // fail
         done(new Error("Invalid host domain"));
     }

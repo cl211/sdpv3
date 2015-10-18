@@ -72,7 +72,7 @@ class AdminCtrl {
     }
 
     function select(id: string, event: MouseEvent): void {
-      Restangular.one("users", id).get().then(function(r) {
+      Restangular.one("users", id).get().then(function(r: restangular.IElement) {
         /** TODO: typage correct */
         var config: any = {
           controller: "FicheDialogCtrl",
@@ -85,15 +85,8 @@ class AdminCtrl {
             }
           }
         };
-        $mdDialog.show(config).then(function(answer: sdp.user) {
-
-          $http.put("/api/v1/users/" + r._id, answer).then(function() {
-            tools.notify("Utilisateur mis à jour !")
-          })
-          /*
-          Restangular.one("users", id).put(answer.$object).then(function(r) {
-            tools.notify("maj")
-          })*/
+        $mdDialog.show(config).then(function(answer: restangular.IElement) {
+          answer.put();
         });
       });
     }

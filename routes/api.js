@@ -2,6 +2,8 @@ var validator = require('validator');
 var enumerations = require('../models/enumerations');
 var moment = require('moment');
 
+var properties = 'buque fams adress firstname lastname adress phone email2';
+
 module.exports = function (api, models) {
 
   var User = models.User;
@@ -187,8 +189,6 @@ module.exports = function (api, models) {
          *   /api/v1/users/171
          */
       .put(function(req, res) {
-        console.log(req.body)
-        console.log(req.params)
         User.findById(req.params.user_id, function(err, user) {
           if(err) {
             res.status(404).send(err);
@@ -198,7 +198,7 @@ module.exports = function (api, models) {
                 user[property] = req.body[property];
               }
             }
-            'buque fams adress firstname lastname adress phone email2'.split(' ').forEach(function(property) {
+            properties.split(' ').forEach(function(property) {
               tester(property);
             });
 

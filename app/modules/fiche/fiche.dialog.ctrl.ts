@@ -14,12 +14,14 @@ class FicheDialogCtrl {
     var vm: FicheDialogCtrl = this;
     vm.hide = hide;
     vm.valider = valider;
+    /*
     vm.user = {
       buque: userData.buque,
       fams: userData.fams,
       firstname: userData.firstname,
       lastname: userData.lastname
-     }
+    }*/
+    vm.user = userData;
 
     function hide(): void {
       $mdDialog.cancel();

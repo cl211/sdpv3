@@ -2,7 +2,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-wiredep');
     grunt.loadNpmTasks('grunt-injector');
     grunt.loadNpmTasks('grunt-contrib-less');
-    grunt.loadNpmTasks('grunt-typescript');
+    grunt.loadNpmTasks('grunt-ts');
 
 	grunt.initConfig({
       less: {
@@ -33,22 +33,15 @@ module.exports = function(grunt) {
 	            }
 	        }
 	    },
-	    typescript: {
-	        base: {
-	            src: ['**/*.ts'],
-	            options: {
-	                module: 'commonjs',
-	                target: 'es5',
-	                sourceMap: true,
-	                declaration: false,
-                  removeComments: true
-	            }
-	        }
-	    }
+      ts: {
+          default : {
+            src: ["**/*.ts", "!node_modules/**/*.ts", "!typings/**/*.ts"]
+          }
+        }
 	});
 
-grunt.registerTask('ts', ['typescript']);
+grunt.registerTask('ts', ['ts']);
 grunt.registerTask('wire', ['less','injector', 'wiredep']);
-grunt.registerTask('tswire', ['typescript','less', 'injector', 'wiredep']);
+grunt.registerTask('tswire', ['ts','less', 'injector', 'wiredep']);
 
 }

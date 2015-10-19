@@ -21,7 +21,7 @@ module.exports = function (api, models) {
       res.status(200).send(enumerations.boquettes);
     });
 
-    api.route('/v1/groupes')
+    api.route('/v1/groupesregionaux')
     /**
      * @api {get} /groupesregionaux
      * @apiDescription Cette requête permet de récupérer la liste des groupes régionaux

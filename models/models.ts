@@ -1,9 +1,11 @@
-var mongoose = require('mongoose');
+﻿var mongoose = require('mongoose');
 var findOrCreate = require('mongoose-findorcreate');
 var enumerations = require('./enumerations');
 var _ = require('underscore');
-module.exports = function (db) {
+
+export = function (db) {
     var Schema = mongoose.Schema;
+
     var BuquageSchema = new Schema({
         manip: String,
         dateManip: Date,
@@ -18,6 +20,7 @@ module.exports = function (db) {
         montant: Number,
         isFromPgToProms: Boolean
     });
+
     var UserSchema = new Schema({
         buque: String,
         fams: String,
@@ -35,30 +38,36 @@ module.exports = function (db) {
         buquages: [BuquageSchema]
     });
     UserSchema.plugin(findOrCreate);
+
     var RoleSchema = new Schema({
         name: { type: String, enum: enumerations.roles },
         permissions: [{ type: String, enum: enumerations.permissions }]
     });
+
     var GroupeItemSchema = new Schema({
         name: String,
         date: Date,
         sticked: Boolean
     });
+
     var GroupeSchema = new Schema({
         name: String,
         stream: [GroupeItemSchema],
         members: [UserSchema]
     });
+
     var PollSchema = new Schema({
         choix: [String],
         multiple: Boolean,
         private: Boolean
     });
+
     var PostSchema = new Schema({
         title: String,
         text: String,
         picture: String
     });
+
     var EventSchema = new Schema({
         name: String,
         description: String,
@@ -66,13 +75,16 @@ module.exports = function (db) {
         members: [UserSchema],
         admin: [UserSchema]
     });
-    var NotificationSchema = new Schema({});
+
+    var NotificationSchema = new Schema({
+
+    });
+
     return {
         User: db.model('User', UserSchema),
         Groupe: db.model('Groupe', GroupeSchema),
         Event: db.model('Event', EventSchema),
         Buquage: db.model('Buquage', BuquageSchema),
         Role: db.model('Role', RoleSchema)
-    };
-};
-//# sourceMappingURL=models.js.map
+    }
+}

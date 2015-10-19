@@ -1,6 +1,7 @@
 var mongoose = require('mongoose');
 var findOrCreate = require('mongoose-findorcreate');
 var enumerations = require('./enumerations');
+var _ = require('underscore');
 
 module.exports = function (usersDb, groupesDb, eventsDb) {
     var Schema = mongoose.Schema;
@@ -30,7 +31,7 @@ module.exports = function (usersDb, groupesDb, eventsDb) {
       longitude: Number,
       phone: String,
       groupeRegional: { type: String, enum: enumerations.groupesRegionaux },
-      boquette: String,
+      boquette: {type: String, enum: _.pluck(enumerations.boquettes, 'name') },
       email1: String,
       email2: String,
       roles: [{ type: String, enum: enumerations.roles }],

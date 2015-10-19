@@ -13,7 +13,7 @@ module.exports = function (api, models) {
    * @apiDescription Cette requête permet de récupérer la liste des boquettes
    * @apiName GetBoquettes
    * @apiGroup Boquettes
-   * @apiVersion 1.0.0
+   * @apiVersion 0.1.0
    * @apiExample {js} Example :
    *   /api/v1/boquettes
    */
@@ -21,15 +21,15 @@ module.exports = function (api, models) {
       res.status(200).send(enumerations.boquettes);
     });
 
-    api.route('/v1/gr')
+    api.route('/v1/groupes')
     /**
-     * @api {get} /gr
+     * @api {get} /groupesregionaux
      * @apiDescription Cette requête permet de récupérer la liste des groupes régionaux
      * @apiName GetGr
-     * @apiGroup Groupes Régionaux
-     * @apiVersion 1.0.0
+     * @apiGroup Groupes Regionaux
+     * @apiVersion 0.1.0
      * @apiExample {js} Example :
-     *   /api/v1/gr
+     *   /api/v1/groupesregionaux
      */
       .get(function(req, res) {
         res.status(200).send(enumerations.groupesRegionaux);
@@ -41,7 +41,7 @@ module.exports = function (api, models) {
      * @apiDescription Cette requête permet de récupérer la liste des statuts
      * @apiName GetStatus
      * @apiGroup Status
-     * @apiVersion 1.0.0
+     * @apiVersion 0.1.0
      * @apiExample {js} Example :
      *   /api/v1/status
      */
@@ -55,7 +55,7 @@ module.exports = function (api, models) {
      * @apiDescription Cette requête permet de récupérer la liste des rôles
      * @apiName GetRoles
      * @apiGroup Roles
-     * @apiVersion 1.0.0
+     * @apiVersion 0.1.0
      * @apiExample {js} Example :
      *   /api/v1/roles
      */
@@ -69,7 +69,7 @@ module.exports = function (api, models) {
      * @apiDescription Cette requête permet de récupérer la liste des permissions
      * @apiName GetPermissions
      * @apiGroup Permissions
-     * @apiVersion 1.0.0
+     * @apiVersion 0.1.0
      * @apiExample {js} Example :
      *   /api/v1/permissions
      */
@@ -83,7 +83,7 @@ module.exports = function (api, models) {
    * @apiDescription Cette requête permet de récupérer la liste de tous les users
    * @apiName GetUsers
    * @apiGroup Users
-   * @apiVersion 1.0.0
+   * @apiVersion 0.1.0
    * @apiExample {js} Example :
    *   /api/v1/users
    */
@@ -102,10 +102,16 @@ module.exports = function (api, models) {
      * @apiDescription Cette requête permet d'ajouter un nouvel utilisateur
      * @apiName PostUsers
      * @apiGroup Users
-     * @apiVersion 1.0.0
-     * @apiParam {String} buque La buque du PG
-     * @apiParam {String} fams La fam's du PG
-     * @apiParam {String} bande La bande du PG
+     * @apiVersion 0.1.0
+     * @apiParam {String} email1 l'adresse mail principale du PG
+     * @apiParam {String} [buque] La buque du PG
+     * @apiParam {String} [fams] La fam's du PG
+     * @apiParam {String} [firstname] Le prénom du PG
+     * @apiParam {String} [lastname] Le nom de famille du PG
+     * @apiParam {String} [adress] L'adresse du PG
+     * @apiParam {String} [phone] Le numéro de téléphone du PG
+     * @apiParam {String} [email2] L'adresse email secondaire du PG
+     * @apiParam {String} [boquette] La boquette du PG
      * @apiExample {js} Example :
      *   /api/v1/users
      */
@@ -133,9 +139,9 @@ module.exports = function (api, models) {
        * @apiDescription Cette requête permet de récupérer un utilisateur à partir de son ID
        * @apiName GetUsers
        * @apiGroup Users
-       * @apiVersion 1.0.0
+       * @apiVersion 0.1.0
        * @apiExample {js} Example :
-       *   /api/v1/users/171
+       *   /api/v1/users/5620c3eccf6ac8881e55b690
        */
       .get(function(req, res) {
         /** TODO: ajouter 'self' dans la doc */
@@ -162,9 +168,9 @@ module.exports = function (api, models) {
          * @apiDescription Cette requête permet de supprimer un user à partir de son ID
          * @apiName DeleteUsers
          * @apiGroup Users
-         * @apiVersion 1.0.0
+         * @apiVersion 0.1.0
          * @apiExample {js} Example :
-         *   /api/v1/users/171
+         *   /api/v1/users/5620c3eccf6ac8881e55b690
          */
       .delete(function(req, res) {
         User.findById(req.params.user_id, function(err, user) {
@@ -182,9 +188,17 @@ module.exports = function (api, models) {
          * @apiDescription Cette requête permet de mettre à jour les informations d'un utilisateur
          * @apiName UpdateUsers
          * @apiGroup Users
-         * @apiVersion 1.0.0
+         * @apiVersion 0.1.0
+         * @apiParam {String} [buque] La buque du PG
+         * @apiParam {String} [fams] La fam's du PG
+         * @apiParam {String} [firstname] Le prénom du PG
+         * @apiParam {String} [lastname] Le nom de famille du PG
+         * @apiParam {String} [adress] L'adresse du PG
+         * @apiParam {String} [phone] Le numéro de téléphone du PG
+         * @apiParam {String} [email2] L'adresse email secondaire du PG
+         * @apiParam {String} [boquette] La boquette du PG
          * @apiExample {js} Example :
-         *   /api/v1/users/171
+         *   /api/v1/users/5620c3eccf6ac8881e55b690
          */
       .put(function(req, res) {
         User.findById(req.params.user_id, function(err, user) {
@@ -217,7 +231,7 @@ module.exports = function (api, models) {
        * @apiDescription Cette requête permet d'ajouter un buquage, quand on dispose du user
        * @apiName PostBuquages
        * @apiGroup Buquages
-       * @apiVersion 1.0.0
+       * @apiVersion 0.1.0
        * @apiParam {String} manip La manip associée
        * @apiParam {String} montant Le montant associé
        * @apiParam {String} dateManip La date associée à la manip
@@ -270,9 +284,9 @@ module.exports = function (api, models) {
          * @apiDescription Cette requête permet de récupérer les buquages d'un PG
          * @apiName GetBuquages
          * @apiGroup Buquages
-         * @apiVersion 1.0.0
+         * @apiVersion 0.1.0
          * @apiExample {js} Example :
-         *   /api/v1/users/:user_id/buquages
+         *   /api/v1/users/5620c3eccf6ac8881e55b690/buquages
          */
         .get(function(req, res) {
           User.findById(req.params.user_id, function(err, user) {
@@ -293,13 +307,13 @@ module.exports = function (api, models) {
          * @apiDescription Cette requête permet d'ajouter un buquage
          * @apiName PostBuquages
          * @apiGroup Buquages
-         * @apiVersion 1.0.0
+         * @apiVersion 0.1.0
          * @apiParam {String} manip La manip associée
          * @apiParam {String} montant Le montant associé
          * @apiParam {String} dateManip La date associée à la manip
          * @apiParam {Boolean} isFromPgtoProms Le sens (débiteur ou créditeur)
          * @apiExample {js} Example :
-         *   /api/v1/buquages
+         *   /api/v1/users/5620c3eccf6ac8881e55b690/buquages
          */
         .post(function(req, res) {
           User.findById(req.params.user_id, function(err, user) {
@@ -359,9 +373,9 @@ module.exports = function (api, models) {
          * @apiDescription Cette requête permet de supprimer le buquage d'un PG
          * @apiName DeleteBuquages
          * @apiGroup Buquages
-         * @apiVersion 1.0.0
+         * @apiVersion 0.1.0
          * @apiExample {js} Example :
-         *   /api/v1/users/:user_id/buquages/:buquage_id
+         *   /api/v1/users/5620c3eccf6ac8881e55b690/buquages/5620c3eccf6ac8881e55b690
          */
         .delete(function(req, res) {
           User.findById(req.params.user_id, function(err, user) {

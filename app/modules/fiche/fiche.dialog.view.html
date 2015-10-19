@@ -1,45 +1,63 @@
 <md-dialog aria-label="Fiche utilisateur" class="sdp-popup">
     <md-toolbar class="md-primary md-hue-1">
         <div class="md-toolbar-tools">
-            Fiche utilisateur
+            Fiche utilisateur - {{ vm.user.email1 }}
         </div>
     </md-toolbar>
     <md-dialog-content data-layout="column" data-layout-padding data-layout-margin>
-
-      <div data-layout="row">
-        <md-input-container data-flex="25">
-          <label>Prénom</label>
-          <input type="text" data-ng-model="vm.user.firstname">
-        </md-input-container>
-
-        <md-input-container data-flex="25">
-          <label>Nom</label>
-          <input type="text" data-ng-model="vm.user.lastname">
-        </md-input-container>
-
-        <md-input-container data-flex="25">
-          <label>Buque</label>
-          <input type="text" data-ng-model="vm.user.buque">
-        </md-input-container>
-
-        <md-input-container data-flex="25">
-          <label>Fam's</label>
-          <input type="text" data-ng-model="vm.user.fams">
-        </md-input-container>
+      <div data-ng-if="vm.isLoading" data-layout="column" data-layout-align="center center" class="sdp-loader">
+        <md-progress-circular md-mode="indeterminate"></md-progress-circular>
       </div>
+      <div data-ng-if="!vm.isLoading">
+        <h2>Profil :</h2>
+        <div data-layout="row">
+          <md-input-container data-flex="25">
+            <label>Prénom</label>
+            <input type="text" data-ng-model="vm.user.firstname">
+          </md-input-container>
 
-      <div data-layout="row">
-        <md-input-container data-flex="25">
-          <label>Téléphone</label>
-          <input type="text" data-ng-model="vm.user.phone">
-        </md-input-container>
+          <md-input-container data-flex="25">
+            <label>Nom</label>
+            <input type="text" data-ng-model="vm.user.lastname">
+          </md-input-container>
 
-        <md-input-container data-flex="25">
-          <label>Adresse</label>
-          <input type="text" data-ng-model="vm.user.adress">
-        </md-input-container>
+          <md-input-container data-flex="25">
+            <label>Buque</label>
+            <input type="text" data-ng-model="vm.user.buque">
+          </md-input-container>
+
+          <md-input-container data-flex="25">
+            <label>Fam's</label>
+            <input type="text" data-ng-model="vm.user.fams">
+          </md-input-container>
+        </div>
+
+        <h2>Coordonnées :</h2>
+        <div data-layout="row">
+          <md-input-container data-flex="25">
+            <label>Téléphone</label>
+            <input type="text" data-ng-model="vm.user.phone">
+          </md-input-container>
+
+          <md-input-container data-flex="50">
+            <label>Adresse complète</label>
+            <input type="text" data-ng-model="vm.user.adress">
+          </md-input-container>
+
+          <md-input-container data-flex="25">
+            <label>Adresse email secondaire</label>
+            <input type="text" data-ng-model="vm.user.email2">
+          </md-input-container>
+        </div>
+
+        <h2>Informations complémentaires :</h2>
+        <div layout="row">
+          <md-select placeholder="Boquette" data-ng-model="vm.user.boquette" data-flex>
+            <md-option value="none">Sans objet</md-option>
+            <md-option data-ng-repeat="boquette in vm.boquettes" data-ng-value="boquette.key">{{ boquette.name }}</md-option>
+          </md-select>
+        </div>
       </div>
-
 
     </md-dialog-content>
     <div class="md-actions" layout="row">

@@ -27,7 +27,7 @@ class AdminCtrl {
     vm.addUser = addUser;
     vm.toggleAddForm = toggleAddForm;
     vm.canAdd = false;
-    vm.isLoading = false;
+    vm.isLoading = true;
     vm.users = [];
     vm.newUser = { email1: "" };
     updateUsers();

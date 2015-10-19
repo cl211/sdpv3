@@ -2,8 +2,6 @@ var validator = require('validator');
 var enumerations = require('../models/enumerations');
 var moment = require('moment');
 
-var properties = 'buque fams adress firstname lastname adress phone email2';
-
 module.exports = function (api, models) {
 
   var User = models.User;
@@ -198,7 +196,7 @@ module.exports = function (api, models) {
                 user[property] = req.body[property];
               }
             }
-            properties.split(' ').forEach(function(property) {
+            enumerations.properties.forEach(function(property) {
               tester(property);
             });
 

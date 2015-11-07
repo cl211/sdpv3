@@ -1,21 +1,29 @@
-node_modules/
-bower_components/
-config.js
-config-old.js
-config.ts
-config.map.js
-tmp/
-doc/
+# Fichiers générés
 app/**/*.js
 models/**/*.js
 routes/**/*.js
 **/*.js.map
 server.js
+app/**/*.css
+app/**/*.css.map
+
+# Déploiement et documentation
+tmp/
+doc/
 dist/
+
+# Modules et bibliothèques
+node_modules/
+bower_components/
 typings/
-app/styles.css
-app/styles.css.map
-batch/
+
+# Fichier de config
+config.js
+config-old.js
+config.ts
+config.map.js
+
+# Visual Studio
 .vs/
 obj/
 *.csproj
@@ -24,3 +32,7 @@ web.Debug.config
 web.config
 web.Release.config
 *.sln
+
+# Autres
+batch/
+.tscache

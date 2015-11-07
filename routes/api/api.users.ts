@@ -7,7 +7,7 @@ export = function (api, models) {
     api.route('/v1/users')
     /**
      * @api {get} /users
-     * @apiDescription Cette requ�te permet de r�cup�rer la liste de tous les users
+     * @apiDescription Cette requête permet de récupérer la liste de tous les users
      * @apiName GetUsers
      * @apiGroup Users
      * @apiVersion 0.1.0
@@ -26,24 +26,24 @@ export = function (api, models) {
         })
     /**
      * @api {post} /users
-     * @apiDescription Cette requ�te permet d'ajouter un nouvel utilisateur
+     * @apiDescription Cette requête permet d'ajouter un nouvel utilisateur
      * @apiName PostUsers
      * @apiGroup Users
      * @apiVersion 0.1.0
      * @apiParam {String} email1 l'adresse mail principale du PG
      * @apiParam {String} [buque] La buque du PG
      * @apiParam {String} [fams] La fam's du PG
-     * @apiParam {String} [firstname] Le pr�nom du PG
+     * @apiParam {String} [firstname] Le prénom du PG
      * @apiParam {String} [lastname] Le nom de famille du PG
      * @apiParam {String} [adress] L'adresse du PG
-     * @apiParam {String} [phone] Le num�ro de t�l�phone du PG
+     * @apiParam {String} [phone] Le numéro de téléphone du PG
      * @apiParam {String} [email2] L'adresse email secondaire du PG
      * @apiParam {String} [boquette] La boquette du PG
      * @apiExample {js} Example :
      *   /api/v1/users
      */
         .post(function (req, res) {
-            /** TODO: v�rifier que l'adresse email n'est pas d�j� utilis�e */
+            /** TODO: vérifier que l'adresse email n'est pas déjà utilisée */
             var user = new User();
             if (validator.isEmail(req.body.email1)) {
                 user.email1 = req.body.email1
@@ -63,7 +63,7 @@ export = function (api, models) {
     api.route('/v1/users/:user_id')
     /**
      * @api {get} /users/:userId
-     * @apiDescription Cette requ�te permet de r�cup�rer un utilisateur � partir de son ID
+     * @apiDescription Cette requête permet de récupérer un utilisateur à partir de son ID
      * @apiName GetUsers
      * @apiGroup Users
      * @apiVersion 0.1.0
@@ -92,7 +92,7 @@ export = function (api, models) {
         })
     /**
      * @api {delete} /users/:userId
-     * @apiDescription Cette requ�te permet de supprimer un user � partir de son ID
+     * @apiDescription Cette requête permet de supprimer un user à partir de son ID
      * @apiName DeleteUsers
      * @apiGroup Users
      * @apiVersion 0.1.0
@@ -112,16 +112,16 @@ export = function (api, models) {
         })
     /**
      * @api {put} /users/:userId
-     * @apiDescription Cette requ�te permet de mettre � jour les informations d'un utilisateur
+     * @apiDescription Cette requête permet de mettre à jour les informations d'un utilisateur
      * @apiName UpdateUsers
      * @apiGroup Users
      * @apiVersion 0.1.0
      * @apiParam {String} [buque] La buque du PG
      * @apiParam {String} [fams] La fam's du PG
-     * @apiParam {String} [firstname] Le pr�nom du PG
+     * @apiParam {String} [firstname] Le prénom du PG
      * @apiParam {String} [lastname] Le nom de famille du PG
      * @apiParam {String} [adress] L'adresse du PG
-     * @apiParam {String} [phone] Le num�ro de t�l�phone du PG
+     * @apiParam {String} [phone] Le numéro de téléphone du PG
      * @apiParam {String} [email2] L'adresse email secondaire du PG
      * @apiParam {String} [boquette] La boquette du PG
      * @apiExample {js} Example :

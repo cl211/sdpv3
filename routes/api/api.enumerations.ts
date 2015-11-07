@@ -4,7 +4,7 @@ export = function (api, models) {
     api.route('/v1/boquettes')
     /**
      * @api {get} /boquettes
-     * @apiDescription Cette requ�te permet de r�cup�rer la liste des boquettes
+     * @apiDescription Cette requête permet de récupérer la liste des boquettes
      * @apiName GetBoquettes
      * @apiGroup Boquettes
      * @apiVersion 0.1.0
@@ -18,7 +18,7 @@ export = function (api, models) {
     api.route('/v1/groupesregionaux')
     /**
      * @api {get} /groupesregionaux
-     * @apiDescription Cette requ�te permet de r�cup�rer la liste des groupes r�gionaux
+     * @apiDescription Cette requ�te permet de récupérer la liste des groupes régionaux
      * @apiName GetGr
      * @apiGroup Groupes Regionaux
      * @apiVersion 0.1.0
@@ -32,7 +32,7 @@ export = function (api, models) {
     api.route('/v1/status')
     /**
      * @api {get} /status
-     * @apiDescription Cette requ�te permet de r�cup�rer la liste des statuts
+     * @apiDescription Cette requête permet de récupérer la liste des statuts
      * @apiName GetStatus
      * @apiGroup Status
      * @apiVersion 0.1.0
@@ -46,7 +46,7 @@ export = function (api, models) {
     api.route('/v1/roles')
     /**
      * @api {get} /roles
-     * @apiDescription Cette requ�te permet de r�cup�rer la liste des r�les
+     * @apiDescription Cette requête permet de récupérer la liste des rôles
      * @apiName GetRoles
      * @apiGroup Roles
      * @apiVersion 0.1.0
@@ -60,7 +60,7 @@ export = function (api, models) {
     api.route('/v1/permissions')
     /**
         * @api {get} /permissions
-        * @apiDescription Cette requ�te permet de r�cup�rer la liste des permissions
+        * @apiDescription Cette requête permet de récupérer la liste des permissions
         * @apiName GetPermissions
         * @apiGroup Permissions
         * @apiVersion 0.1.0

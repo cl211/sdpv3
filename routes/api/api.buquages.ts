@@ -6,15 +6,15 @@ export = function (api, models) {
     api.route('/v1/buquages')
     /**
      * @api {post} /buquages
-     * @apiDescription Cette requ�te permet d'ajouter un buquage, quand on dispose du user
+     * @apiDescription Cette requête permet d'ajouter un buquage, quand on dispose du user
      * @apiName PostBuquages
      * @apiGroup Buquages
      * @apiVersion 0.1.0
-     * @apiParam {String} manip La manip associ�e
-     * @apiParam {String} montant Le montant associ�
-     * @apiParam {String} dateManip La date associ�e � la manip
-     * @apiParam {Boolean} isFromPgtoProms Le sens (d�biteur ou cr�diteur)
-     * @apiParam {String} email1 L'adresse email de l'utilisateur associ�
+     * @apiParam {String} manip La manip associée
+     * @apiParam {String} montant Le montant associé
+     * @apiParam {String} dateManip La date associée à la manip
+     * @apiParam {Boolean} isFromPgtoProms Le sens (débiteur ou créditeur)
+     * @apiParam {String} email1 L'adresse email de l'utilisateur associé
      * @apiExample {js} Example :
      *   /api/v1/buquages
      */
@@ -59,7 +59,7 @@ export = function (api, models) {
     api.route('/v1/users/:user_id/buquages')
     /**
      * @api {get} /users/:user_id/buquages
-     * @apiDescription Cette requ�te permet de r�cup�rer les buquages d'un PG
+     * @apiDescription Cette requête permet de récupérer les buquages d'un PG
      * @apiName GetBuquages
      * @apiGroup Buquages
      * @apiVersion 0.1.0
@@ -82,14 +82,14 @@ export = function (api, models) {
         })
     /**
      * @api {post} /users/:user_id/buquages
-     * @apiDescription Cette requ�te permet d'ajouter un buquage
+     * @apiDescription Cette requête permet d'ajouter un buquage
      * @apiName PostBuquages
      * @apiGroup Buquages
      * @apiVersion 0.1.0
-     * @apiParam {String} manip La manip associ�e
-     * @apiParam {String} montant Le montant associ�
-     * @apiParam {String} dateManip La date associ�e � la manip
-     * @apiParam {Boolean} isFromPgtoProms Le sens (d�biteur ou cr�diteur)
+     * @apiParam {String} manip La manip associée
+     * @apiParam {String} montant Le montant associé
+     * @apiParam {String} dateManip La date associée à la manip
+     * @apiParam {Boolean} isFromPgtoProms Le sens (débiteur ou créditeur)
      * @apiExample {js} Example :
      *   /api/v1/users/5620c3eccf6ac8881e55b690/buquages
      */
@@ -148,7 +148,7 @@ export = function (api, models) {
         })
     /**
      * @api {delete} /users/:user_id/buquages/:buquage_id
-     * @apiDescription Cette requ�te permet de supprimer le buquage d'un PG
+     * @apiDescription Cette requête permet de supprimer le buquage d'un PG
      * @apiName DeleteBuquages
      * @apiGroup Buquages
      * @apiVersion 0.1.0
